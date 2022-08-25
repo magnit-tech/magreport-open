@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="DATA_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="DATA_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="DATA_TYPE">
+            <column name="NAME" value="INTEGER"/>
+            <column name="DESCRIPTION" value="Целое число"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATA_TYPE">
+            <column name="NAME" value="STRING"/>
+            <column name="DESCRIPTION" value="Строка"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATA_TYPE">
+            <column name="NAME" value="DOUBLE"/>
+            <column name="DESCRIPTION" value="Число с плавающей точкой"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATA_TYPE">
+            <column name="NAME" value="DATE"/>
+            <column name="DESCRIPTION" value="Дата"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATA_TYPE">
+            <column name="NAME" value="TIMESTAMP"/>
+            <column name="DESCRIPTION" value="Дата и время"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

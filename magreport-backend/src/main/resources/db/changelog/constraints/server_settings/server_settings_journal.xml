@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SERVER_SETTINGS_JOURNAL-001" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SERVER_SETTINGS_JOURNAL-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="SERVER_SETTINGS_JOURNAL"
+                                 constraintName="FK-SERVER_SETTINGS_JOURNAL-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID"
+                                 referencedTableName="USERS"/>
+    </changeSet>
+
+    <changeSet id="SERVER_SETTINGS_JOURNAL-002" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SERVER_SETTINGS_JOURNAL-SERVER_SETTINGS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SERVER_SETTINGS_ID" baseTableName="SERVER_SETTINGS_JOURNAL"
+                                 constraintName="FK-SERVER_SETTINGS_JOURNAL-SERVER_SETTINGS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SERVER_SETTINGS_ID"
+                                 referencedTableName="SERVER_SETTINGS"/>
+    </changeSet>
+
+</databaseChangeLog>

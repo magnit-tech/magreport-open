@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="SCHEDULE_TASK_STATUS-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="SCHEDULE_TASK_STATUS"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TASK_STATUS">
+            <column name="NAME" value="SCHEDULED"/>
+            <column name="DESCRIPTION" value="Ожидает выполнения"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TASK_STATUS">
+            <column name="NAME" value="RUNNING"/>
+            <column name="DESCRIPTION" value="Выполняется"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TASK_STATUS">
+            <column name="NAME" value="COMPLETE"/>
+            <column name="DESCRIPTION" value="Успешно выполнен"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TASK_STATUS">
+            <column name="NAME" value="FAILED"/>
+            <column name="DESCRIPTION" value="Завершен с ошибкой"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TASK_STATUS">
+            <column name="NAME" value="EXPIRED"/>
+            <column name="DESCRIPTION" value="Просрочен срок действия"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TASK_STATUS">
+            <column name="NAME" value="CHANGED"/>
+            <column name="DESCRIPTION" value="Изменены параметры отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TASK_STATUS">
+            <column name="NAME" value="INACTIVE"/>
+            <column name="DESCRIPTION" value="Не активен"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

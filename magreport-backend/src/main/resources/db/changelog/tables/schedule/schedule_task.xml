@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SCHEDULE_TASK-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="SCHEDULE_TASK_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="SCHEDULE_TASK_SEQ" startValue="0"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet id="SCHEDULE_TASK-002" author="vyushin_aa">
+        <createTable schemaName="REPOSITORY" tableName="SCHEDULE_TASK">
+            <column name="SCHEDULE_TASK_ID" type="INT" defaultValueSequenceNext="SCHEDULE_TASK_SEQ">
+                <constraints primaryKey="true" primaryKeyName="SCHEDULE_TASK_PK"/>
+            </column>
+            <column name="EXCEL_TEMPLATE_ID" type="INT" defaultValue="1">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REPORT_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SCHEDULE_TASK_TYPE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SCHEDULE_TASK_STATUS_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EXPIRATION_DATE" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EXPIRATION_CODE" type="UUID"/>
+            <column name="USER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CODE" type="VARCHAR(255)"/>
+            <column name="REPORT_TITLE_MAIL" type="VARCHAR(255)" defaultValue=""/>
+            <column name="REPORT_BODY_MAIL" type="TEXT"/>
+            <column name="ERROR_TITLE_MAIL" type="VARCHAR(255)"/>
+            <column name="ERROR_BODY_MAIL" type="TEXT"/>
+            <column name="RENEWAL_PERIOD" type="INT" defaultValue="0"/>
+            <column name="SEND_EXPIRED_MAIL" type="BOOLEAN" defaultValue="true"/>
+            <column name="SEND_EMPTY_REPORT" type="BOOLEAN" defaultValue="true"/>
+            <column name="SET_FAILED_STATUS" type="BOOLEAN" defaultValue="true"/>
+            <column name="FAILED_STARTS" type="INTEGER" defaultValue="0"/>
+            <column name="MAX_FAILED_STARTS" type="INTEGER" defaultValue="3"/>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

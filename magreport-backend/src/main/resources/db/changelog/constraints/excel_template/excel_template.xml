@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="EXCEL_TEMPLATE-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-EXCEL_TEMPLATE-EXCEL_TEMPLATE_FOLDER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="EXCEL_TEMPLATE_FOLDER_ID" baseTableName="EXCEL_TEMPLATE"
+                                 constraintName="FK-EXCEL_TEMPLATE-EXCEL_TEMPLATE_FOLDER"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="EXCEL_TEMPLATE_FOLDER_ID" referencedTableName="EXCEL_TEMPLATE_FOLDER"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="EXCEL_TEMPLATE-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-EXCEL_TEMPLATE-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="EXCEL_TEMPLATE"
+                                 constraintName="FK-EXCEL_TEMPLATE-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="USERS"/>
+    </changeSet>
+
+</databaseChangeLog>

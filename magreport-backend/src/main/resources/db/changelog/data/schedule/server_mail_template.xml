@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="SERVER_MAIL_TEMPLATE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE">
+            <column name="SERVER_MAIL_TEMPLATE_TYPE_ID" value="0"/>
+            <column name="CODE" value="scheduleMailCompleteExcel"/>
+            <column name="SUBJECT" value="Отчет по расписанию: «{reportName}»"/>
+            <column name="BODY" value=""/>
+            <column name="NAME" value="Данные для отправки письма с отчетом"/>
+            <column name="DESCRIPTION" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE">
+            <column name="SERVER_MAIL_TEMPLATE_TYPE_ID" value="0"/>
+            <column name="CODE" value="scheduleMailCompleteWeb"/>
+            <column name="SUBJECT" value="Отчет по расписанию: «{reportName}»"/>
+            <column name="BODY" value="Сформирован отчет «{reportName}», id задания: {reportJobId}, выполненное задание можно найти в разделе «Задания»."/>
+            <column name="NAME" value="Данные для отправки уведомления о готовности отчета по расписанию"/>
+            <column name="DESCRIPTION" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE">
+            <column name="SERVER_MAIL_TEMPLATE_TYPE_ID" value="0"/>
+            <column name="CODE" value="scheduleMailExpired"/>
+            <column name="SUBJECT" value="Истек срок задания по расписанию: «{reportName}»"/>
+            <column name="BODY" value="Добрый день! Истек срок выполнения задания по расписанию: «{reportName}». Для продления срока необходимо пройти по ссылке: {prolongationLink}"/>
+            <column name="NAME" value="Данные для отправки уведомления о истечении срока действия подписки"/>
+            <column name="DESCRIPTION" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE">
+            <column name="SERVER_MAIL_TEMPLATE_TYPE_ID" value="0"/>
+            <column name="CODE" value="scheduleMailChanged"/>
+            <column name="SUBJECT" value="Изменение отчета по расписанию: «{reportName}»"/>
+            <column name="BODY" value="Добрый день! Был изменен отчет «{reportName}», для продолжения получения рассылки необходимо актулизировать задание рассылки с id: {taskId}"/>
+            <column name="NAME" value="Данные для отправки уведомления об изменении отчета участвующего в рассылке"/>
+            <column name="DESCRIPTION" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE">
+            <column name="SERVER_MAIL_TEMPLATE_TYPE_ID" value="0"/>
+            <column name="CODE" value="scheduleMailInformExpired"/>
+            <column name="SUBJECT" value=""/>
+            <column name="BODY" value="Скоро истекает срок выполнения задачи по расписанию: «{taskName}». Для продления срока необходимо пройти по ссылке: {prolongationLink}"/>
+            <column name="NAME" value="Добавочный текст о скором истечении срока действия рассылки"/>
+            <column name="DESCRIPTION" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE">
+            <column name="SERVER_MAIL_TEMPLATE_TYPE_ID" value="0"/>
+            <column name="CODE" value="scheduleMailFailed"/>
+            <column name="SUBJECT" value="Ошибка выполнения задачи по отправке отчета: {taskId}"/>
+            <column name="BODY" value="Произошла ошибка в работе сервиса. Дата и время: {currentDataTime}, ID задачи: {taskId}, ID job:{reportJobId}, Текст ошибки: {textError}, StackTrace : {stackTrace}"/>
+            <column name="NAME" value="Данные для отправки сообщения об ошибке"/>
+            <column name="DESCRIPTION" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE">
+            <column name="SERVER_MAIL_TEMPLATE_TYPE_ID" value="0"/>
+            <column name="CODE" value="scheduleMailBigSizeExcel"/>
+            <column name="SUBJECT" value="Отчет по расписанию: «{reportName}»"/>
+            <column name="BODY" value="Ссылка на скачивание файла: {fileLink}"/>
+            <column name="NAME" value="Данные для отправки письма с отчетом"/>
+            <column name="DESCRIPTION" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE">
+            <column name="SERVER_MAIL_TEMPLATE_TYPE_ID" value="0"/>
+            <column name="CODE" value="scheduleMailDeadlineExpires"/>
+            <column name="SUBJECT" value="Отчет по расписанию: «{reportName}»"/>
+            <column name="BODY" value="Добрый день! {expiredDate} заканчивается срок выполнения задания по расписанию: «{reportName}». Для продления срока необходимо пройти по ссылке: {prolongationLink}"/>
+            <column name="NAME" value="Текст для продления действия отчетов"/>
+            <column name="DESCRIPTION" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE">
+            <column name="SERVER_MAIL_TEMPLATE_TYPE_ID" value="0" />
+            <column name="CODE" value="scheduleErrorUserMail"/>
+            <column name="SUBJECT" value="'Ошибка отправки отчета по расписанию: {reportName}" />
+            <column name="BODY" value="Произошла ошибка при формировании отчета. Уведомление об ошибке отправлено разработчикам." />
+            <column name="NAME" value="Данные для отправки письма с уведомлением об ошибке" />
+            <column name="DESCRIPTION" value="" />
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME = 'MAGREPORT-INIT'" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

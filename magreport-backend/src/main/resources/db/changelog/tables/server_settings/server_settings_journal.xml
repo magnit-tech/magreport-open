@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SERVER_SETTINGS_JOURNAL-001" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="SERVER_SETTINGS_JOURNAL_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="SERVER_SETTINGS_JOURNAL_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet id="SERVER_SETTINGS_JOURNAL-002" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="SERVER_SETTINGS_JOURNAL"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="SERVER_SETTINGS_JOURNAL">
+            <column name="SERVER_SETTINGS_JOURNAL_ID" type="INT" defaultValueSequenceNext="SERVER_SETTINGS_JOURNAL_SEQ">
+                <constraints primaryKey="true" primaryKeyName="SERVER_SETTINGS_JOURNAL_PK"/>
+            </column>
+            <column name="USER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SERVER_SETTINGS_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALUE_BEFORE" type="CLOB"/>
+            <column name="VALUE_AFTER" type="CLOB"/>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

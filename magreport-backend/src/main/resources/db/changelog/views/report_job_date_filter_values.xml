@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB_DATE_FILTER_VALUES">
+        <preConditions>
+            <not>
+                <viewExists schemaName="REPOSITORY" viewName="REPORT_JOB_DATE_FILTER_VALUES"/>
+            </not>
+        </preConditions>
+        <createView schemaName="REPOSITORY" viewName="REPORT_JOB_DATE_FILTER_VALUES"
+                    fullDefinition="false" replaceIfExists="true">
+            SELECT
+                RJF.REPORT_JOB_ID,
+                MIN(CASE FR.FILTER_INSTANCE_ID WHEN 2 THEN RJTF.VAL END) AS DAY_ID_FROM,
+                MAX(CASE FR.FILTER_INSTANCE_ID WHEN 2 THEN RJTF.VAL END) AS DAY_ID_TO,
+                DATEDIFF(day, MIN(CASE FR.FILTER_INSTANCE_ID WHEN 2 THEN RJTF.VAL END), MAX(CASE FR.FILTER_INSTANCE_ID WHEN 2 THEN RJTF.VAL END)) + 1 AS  DAY_ID_CNT,
+                MIN(CASE WHEN FR.FILTER_INSTANCE_ID = 23 AND LENGTH(RJTF.VAL) > 4 THEN RJTF.VAL END) AS WEEK_ID_FROM,
+                MAX(CASE WHEN FR.FILTER_INSTANCE_ID = 23 AND LENGTH(RJTF.VAL) > 4 THEN RJTF.VAL END) AS WEEK_ID_TO,
+                SUM(CASE WHEN FR.FILTER_INSTANCE_ID = 23 AND LENGTH(RJTF.VAL) > 4 THEN  1 END) AS WEEK_CNT,
+                MIN(CASE WHEN FR.FILTER_INSTANCE_ID = 37 AND LENGTH(RJTF.VAL) > 4 THEN RJTF.VAL END) AS MONTH_ID_FROM,
+                MAX(CASE WHEN FR.FILTER_INSTANCE_ID = 37 AND LENGTH(RJTF.VAL) > 4 THEN RJTF.VAL END) AS MONTH_ID_TO,
+                SUM(CASE WHEN FR.FILTER_INSTANCE_ID = 37 AND LENGTH(RJTF.VAL) > 4 THEN  1 END) AS MONTH_CNT
+            FROM REPOSITORY.REPORT_JOB_FILTER RJF
+                     INNER JOIN REPOSITORY.REPORT_JOB_TUPLE  RJT ON RJT.REPORT_JOB_FILTER_ID = RJF.REPORT_JOB_FILTER_ID
+                     INNER JOIN REPOSITORY.REPORT_JOB_TUPLE_FIELD RJTF ON RJTF.REPORT_JOB_TUPLE_ID = RJT.REPORT_JOB_TUPLE_ID
+                     INNER JOIN REPOSITORY.FILTER_REPORT FR ON FR.FILTER_REPORT_ID = RJF.FILTER_REPORT_ID
+            WHERE FR.FILTER_INSTANCE_ID IN (2,23,37)
+            GROUP BY RJF.REPORT_JOB_ID;
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

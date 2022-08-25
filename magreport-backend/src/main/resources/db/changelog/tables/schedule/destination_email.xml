@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="DESTINATION_EMAIL-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="DESTINATION_EMAIL_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="DESTINATION_EMAIL_SEQ" startValue="0"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet id="DESTINATION_EMAIL-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="DESTINATION_EMAIL"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="DESTINATION_EMAIL">
+            <column name="DESTINATION_EMAIL_ID" type="INT" defaultValueSequenceNext="DESTINATION_EMAIL_SEQ">
+                <constraints primaryKey="true" primaryKeyName="DESTINATION_EMAIL_PK"/>
+            </column>
+            <column name="SCHEDULE_TASK_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESTINATION_TYPE_ID" type="INT" defaultValue="0"/>
+            <column name="VAL" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

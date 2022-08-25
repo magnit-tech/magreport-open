@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB_STATISTICS-001">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="REPORT_JOB_STATISTICS_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="REPORT_JOB_STATISTICS_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB_STATISTICS-002">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="REPORT_JOB_STATISTICS"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="REPORT_JOB_STATISTICS">
+            <column name="REPORT_JOB_STATISTICS_ID" type="INT" defaultValueSequenceNext="REPORT_JOB_STATISTICS_SEQ">
+                <constraints primaryKey="true" primaryKeyName="REPORT_JOB_STATISTICS_PK"/>
+            </column>
+            <column name="REPORT_JOB_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REPORT_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REPORT_JOB_STATUS_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REPORT_JOB_STATE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROW_COUNT" type="INT"/>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

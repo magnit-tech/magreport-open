@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="DESTINATION_TYPE-001" author="vyushin_aa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="DESTINATION_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="DESTINATION_TYPE">
+            <column name="NAME" value="REPORT"/>
+            <column name="DESCRIPTION" value="Получатель отчета"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="DESTINATION_TYPE">
+            <column name="NAME" value="ERROR"/>
+            <column name="DESCRIPTION" value="Получатель уведомления об ошибке"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

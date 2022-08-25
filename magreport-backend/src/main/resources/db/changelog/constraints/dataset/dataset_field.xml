@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="DATASET_FIELD-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DATASET_FIELD-DATASET"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATASET_ID" baseTableName="DATASET_FIELD"
+                                 constraintName="FK-DATASET_FIELD-DATASET"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATASET_ID" referencedTableName="DATASET"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="DATASET_FIELD-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FFK-DATASET_FIELD-DATA_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATA_TYPE_ID" baseTableName="DATASET_FIELD"
+                                 constraintName="FK-DATASET_FIELD-DATA_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATA_TYPE_ID" referencedTableName="DATA_TYPE"/>
+    </changeSet>
+
+</databaseChangeLog>

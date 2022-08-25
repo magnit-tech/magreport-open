@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_OPERATION_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE">
+            <column name="NAME" value="IS_IN_LIST"/>
+            <column name="DESCRIPTION" value="В списке"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE">
+            <column name="NAME" value="IS_NOT_IN_LIST"/>
+            <column name="DESCRIPTION" value="Не в списке"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE">
+            <column name="NAME" value="IS_EQUAL"/>
+            <column name="DESCRIPTION" value="Равно"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE">
+            <column name="NAME" value="IS_NOT_EQUAL"/>
+            <column name="DESCRIPTION" value="Не равно"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE">
+            <column name="NAME" value="IS_GREATER"/>
+            <column name="DESCRIPTION" value="Больше"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE">
+            <column name="NAME" value="IS_LOWER"/>
+            <column name="DESCRIPTION" value="Меньше"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE">
+            <column name="NAME" value="IS_GREATER_OR_EQUAL"/>
+            <column name="DESCRIPTION" value="Больше или равно"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE">
+            <column name="NAME" value="IS_LOWER_OR_EQUAL"/>
+            <column name="DESCRIPTION" value="Меньше или равно"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE">
+            <column name="NAME" value="IS_BETWEEN"/>
+            <column name="DESCRIPTION" value="Между"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_OPERATION_TYPE">
+            <column name="NAME" value="IS_NOT_BETWEEN"/>
+            <column name="DESCRIPTION" value="Не между"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

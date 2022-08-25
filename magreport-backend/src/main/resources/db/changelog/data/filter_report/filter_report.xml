@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="FILTER_REPORT-001" author="artemenko_pa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_REPORT"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT">
+            <column name="FILTER_REPORT_GROUP_ID" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="5"/>
+            <column name="NAME" value="Дата запуска отчёта"/>
+            <column name="DESCRIPTION" value="Выбор диапазона дат"/>
+            <column name="ORDINAL" value="1"/>
+            <column name="IS_HIDDEN" value="0"/>
+            <column name="IS_MANDATORY" value="1"/>
+            <column name="IS_ROOT_SELECTABLE" value="1"/>
+            <column name="CODE" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT">
+            <column name="FILTER_REPORT_GROUP_ID" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="1"/>
+            <column name="NAME" value="Пользователи &quot;МагРепорт&quot;"/>
+            <column name="DESCRIPTION" value="Пользователи &quot;МагРепорт&quot;"/>
+            <column name="ORDINAL" value="2"/>
+            <column name="IS_HIDDEN" value="0"/>
+            <column name="IS_MANDATORY" value="0"/>
+            <column name="IS_ROOT_SELECTABLE" value="1"/>
+            <column name="CODE" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT">
+            <column name="FILTER_REPORT_GROUP_ID" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="4"/>
+            <column name="NAME" value="Статус отчёта"/>
+            <column name="DESCRIPTION" value="Статус отчёта"/>
+            <column name="ORDINAL" value="5"/>
+            <column name="IS_HIDDEN" value="0"/>
+            <column name="IS_MANDATORY" value="0"/>
+            <column name="IS_ROOT_SELECTABLE" value="1"/>
+            <column name="CODE" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT">
+            <column name="FILTER_REPORT_GROUP_ID" value="2"/>
+            <column name="FILTER_INSTANCE_ID" value="2"/>
+            <column name="NAME" value="Статус отчёта"/>
+            <column name="DESCRIPTION" value="Статус отчёта"/>
+            <column name="ORDINAL" value="1"/>
+            <column name="IS_HIDDEN" value="0"/>
+            <column name="IS_MANDATORY" value="0"/>
+            <column name="IS_ROOT_SELECTABLE" value="1"/>
+            <column name="CODE" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT">
+            <column name="FILTER_REPORT_GROUP_ID" value="2"/>
+            <column name="FILTER_INSTANCE_ID" value="3"/>
+            <column name="NAME" value="Название отчёта с подсказкой"/>
+            <column name="DESCRIPTION" value="Название отчёта с подсказкой"/>
+            <column name="ORDINAL" value="2"/>
+            <column name="IS_HIDDEN" value="0"/>
+            <column name="IS_MANDATORY" value="0"/>
+            <column name="IS_ROOT_SELECTABLE" value="1"/>
+            <column name="CODE" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

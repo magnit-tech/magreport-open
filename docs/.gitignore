@@ -1,0 +1,6 @@
+### Tex ###
+*.aux
+*.log
+*.gz
+*.toc
+*.out

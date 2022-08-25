@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="FILTER_INSTANCE-001" author="artemenko_pa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_INSTANCE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE">
+            <column name="FILTER_INSTANCE_FOLDER_ID" value="1"/>
+            <column name="FILTER_TEMPLATE_ID" value="5"/>
+            <column name="DATASET_ID" value="1"/>
+            <column name="NAME" value="Пользователи &quot;Магрепорт&quot;"/>
+            <column name="DESCRIPTION" value="Пользователи &quot;Магрепорт&quot;"/>
+            <column name="CODE" value="USER_TOKEN_INPUT"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE">
+            <column name="FILTER_INSTANCE_FOLDER_ID" value="1"/>
+            <column name="FILTER_TEMPLATE_ID" value="4"/>
+            <column name="DATASET_ID" value="2"/>
+            <column name="NAME" value="ID отчета"/>
+            <column name="DESCRIPTION" value="ID отчета"/>
+            <column name="CODE" value="REPORT_ID_VALUE_LIST"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE">
+            <column name="FILTER_INSTANCE_FOLDER_ID" value="1"/>
+            <column name="FILTER_TEMPLATE_ID" value="5"/>
+            <column name="DATASET_ID" value="2"/>
+            <column name="NAME" value="Название отчёта с подсказкой"/>
+            <column name="DESCRIPTION" value="Название отчёта с подсказкой"/>
+            <column name="CODE" value="REPORT_TOKEN_INPUT"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE">
+            <column name="FILTER_INSTANCE_FOLDER_ID" value="1"/>
+            <column name="FILTER_TEMPLATE_ID" value="6"/>
+            <column name="DATASET_ID" value="3"/>
+            <column name="NAME" value="Статус отчета"/>
+            <column name="DESCRIPTION" value="Статус отчета"/>
+            <column name="CODE" value="JOB_STATUS_HIER"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE">
+            <column name="FILTER_INSTANCE_FOLDER_ID" value="1"/>
+            <column name="FILTER_TEMPLATE_ID" value="8"/>
+            <column name="NAME" value="Выбор диапазона дат"/>
+            <column name="DESCRIPTION" value="Выбор диапазона дат"/>
+            <column name="CODE" value="DATE_RANGE"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

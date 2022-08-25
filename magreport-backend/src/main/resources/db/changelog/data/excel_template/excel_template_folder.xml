@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="EXCEL_TEMPLATE_FOLDER-001" author="vyushin_aa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="EXCEL_TEMPLATE_FOLDER"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="EXCEL_TEMPLATE_FOLDER">
+            <column name="NAME" value="Шаблоны Excel"/>
+            <column name="DESCRIPTION" value="Шаблоны Excel"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

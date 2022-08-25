@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="ROLE_DOMAIN_GROUP-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-ROLE_DOMAIN_GROUP-ROLE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="ROLE_DOMAIN_GROUP"
+                                 constraintName="FK-ROLE_DOMAIN_GROUP-ROLE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ROLE_ID" referencedTableName="ROLE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="ROLE_DOMAIN_GROUP-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-ROLE_DOMAIN_GROUP-DOMAIN_GROUP"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DOMAIN_GROUP_ID" baseTableName="ROLE_DOMAIN_GROUP"
+                                 constraintName="FK-ROLE_DOMAIN_GROUP-DOMAIN_GROUP"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DOMAIN_GROUP_ID" referencedTableName="DOMAIN_GROUP"/>
+    </changeSet>
+
+</databaseChangeLog>

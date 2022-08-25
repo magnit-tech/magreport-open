@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB_FILTER-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB_FILTER-REPORT_JOB"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_JOB_ID" baseTableName="REPORT_JOB_FILTER"
+                                 constraintName="FK-REPORT_JOB_FILTER-REPORT_JOB"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_JOB_ID" referencedTableName="REPORT_JOB"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB_FILTER-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB_FILTER-FILTER_REPORT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_REPORT_ID" baseTableName="REPORT_JOB_FILTER"
+                                 constraintName="FK-REPORT_JOB_FILTER-FILTER_REPORT"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_REPORT_ID" referencedTableName="FILTER_REPORT"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB_FILTER-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB_FILTER-FILTER_OPERATION_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_OPERATION_TYPE_ID" baseTableName="REPORT_JOB_FILTER"
+                                 constraintName="FK-REPORT_JOB_FILTER-FILTER_OPERATION_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_OPERATION_TYPE_ID"
+                                 referencedTableName="FILTER_OPERATION_TYPE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB_FILTER-004">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB_FILTER-SCHEDULE_TASK"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SCHEDULE_TASK_ID" baseTableName="REPORT_JOB_FILTER"
+                                 constraintName="FK-REPORT_JOB_FILTER-SCHEDULE_TASK"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SCHEDULE_TASK_ID"
+                                 referencedTableName="SCHEDULE_TASK"/>
+    </changeSet>
+
+</databaseChangeLog>

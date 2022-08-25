@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <include file="classpath:/db/changelog/views/report_job_stat_view.xml"/>
+    <include file="classpath:/db/changelog/views/job_exec_short_stats.xml"/>
+    <include file="classpath:/db/changelog/views/report_execution_statistic.xml"/>
+    <include file="classpath:/db/changelog/views/report_job_date_filter_values.xml"/>
+    <include file="classpath:/db/changelog/views/report_execution_statistic_view_field_value.xml"/>
+
+</databaseChangeLog>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER_FOLDER-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER_FOLDER-SECURITY_FILTER_FOLDER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="PARENT_ID" baseTableName="SECURITY_FILTER_FOLDER"
+                                 constraintName="FK-SECURITY_FILTER_FOLDER-SECURITY_FILTER_FOLDER"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SECURITY_FILTER_FOLDER_ID" referencedTableName="SECURITY_FILTER_FOLDER"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER_FOLDER-002">
+        <sql>
+            ALTER TABLE REPOSITORY.SECURITY_FILTER_FOLDER
+                ADD CONSTRAINT IF NOT EXISTS CHK_SECURITY_FILTER_FOLDER_PARENT CHECK (SECURITY_FILTER_FOLDER_ID != PARENT_ID)
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

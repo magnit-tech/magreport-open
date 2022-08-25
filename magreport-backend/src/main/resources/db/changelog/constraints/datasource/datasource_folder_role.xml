@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="DATASOURCE_FOLDER_ROLE-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DATASOURCE_FOLDER_ROLE-DATASOURCE_FOLDER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATASOURCE_FOLDER_ID" baseTableName="DATASOURCE_FOLDER_ROLE"
+                                 constraintName="FK-DATASOURCE_FOLDER_ROLE-DATASOURCE_FOLDER"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATASOURCE_FOLDER_ID" referencedTableName="DATASOURCE_FOLDER"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="DATASOURCE_FOLDER_ROLE-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DATASOURCE_FOLDER_ROLE-ROLE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="DATASOURCE_FOLDER_ROLE"
+                                 constraintName="FK-DATASOURCE_FOLDER_ROLE-ROLE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ROLE_ID" referencedTableName="ROLE"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="JOB_TOKEN-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-JOB_TOKEN-REPORT_JOB"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_JOB_ID" baseTableName="JOB_TOKEN"
+                                 constraintName="FK-JOB_TOKEN-REPORT_JOB"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_JOB_ID" referencedTableName="REPORT_JOB"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="JOB_TOKEN-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-JOB_TOKEN-EXCEL_TEMPLATE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="EXCEL_TEMPLATE_ID" baseTableName="JOB_TOKEN"
+                                 constraintName="FK-JOB_TOKEN-EXCEL_TEMPLATE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="EXCEL_TEMPLATE_ID" referencedTableName="EXCEL_TEMPLATE"/>
+    </changeSet>
+
+</databaseChangeLog>

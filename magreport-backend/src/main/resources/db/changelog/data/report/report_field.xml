@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_FIELD-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="REPORT_FIELD"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="25"/>
+            <column name="ORDINAL" value="1"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="DAY_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="24"/>
+            <column name="ORDINAL" value="2"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="REPORT_JOB_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="26"/>
+            <column name="ORDINAL" value="3"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="USER_NAME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="27"/>
+            <column name="ORDINAL" value="4"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="FIO"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="28"/>
+            <column name="ORDINAL" value="5"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="29"/>
+            <column name="ORDINAL" value="6"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="REPORT_NAME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="30"/>
+            <column name="ORDINAL" value="7"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="QUEUING_TIME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="31"/>
+            <column name="ORDINAL" value="8"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="START_TIME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="32"/>
+            <column name="ORDINAL" value="9"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="DATA_TIME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="33"/>
+            <column name="ORDINAL" value="10"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="FINISH_TIME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="34"/>
+            <column name="ORDINAL" value="11"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="ROW_COUNT"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FIELD">
+            <column name="REPORT_ID" value="1"/>
+            <column name="PIVOT_FIELD_TYPE_ID" value="0"/>
+            <column name="DATASET_FIELD_ID" value="35"/>
+            <column name="ORDINAL" value="12"/>
+            <column name="VISIBLE" value="true"/>
+            <column name="NAME" value="FINAL_STATUS"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

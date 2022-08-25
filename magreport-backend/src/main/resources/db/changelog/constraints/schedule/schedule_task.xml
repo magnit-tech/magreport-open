@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SCHEDULE_TASK-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SCHEDULE_TASK-SCHEDULE_TASK_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SCHEDULE_TASK_TYPE_ID" baseTableName="SCHEDULE_TASK"
+                                 constraintName="FK-SCHEDULE_TASK-SCHEDULE_TASK_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SCHEDULE_TASK_TYPE_ID"
+                                 referencedTableName="SCHEDULE_TASK_TYPE"/>
+    </changeSet>
+
+    <changeSet id="SCHEDULE_TASK-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SCHEDULE_TASK-EXCEL_TEMPLATE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="EXCEL_TEMPLATE_ID" baseTableName="SCHEDULE_TASK"
+                                 constraintName="FK-SCHEDULE_TASK-EXCEL_TEMPLATE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="EXCEL_TEMPLATE_ID"
+                                 referencedTableName="EXCEL_TEMPLATE"/>
+    </changeSet>
+
+    <changeSet id="SCHEDULE_TASK-003" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SCHEDULE_TASK-REPORT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_ID" baseTableName="SCHEDULE_TASK"
+                                 constraintName="FK-SCHEDULE_TASK-REPORT"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_ID"
+                                 referencedTableName="REPORT"/>
+    </changeSet>
+
+    <changeSet id="SCHEDULE_TASK-004" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SCHEDULE_TASK-SCHEDULE_TASK_STATUS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SCHEDULE_TASK_STATUS_ID" baseTableName="SCHEDULE_TASK"
+                                 constraintName="FK-SCHEDULE_TASK-SCHEDULE_TASK_STATUS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SCHEDULE_TASK_STATUS_ID"
+                                 referencedTableName="SCHEDULE_TASK_STATUS"/>
+    </changeSet>
+
+    <changeSet id="SCHEDULE_TASK-005" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SCHEDULE_TASK-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="SCHEDULE_TASK"
+                                 constraintName="FK-SCHEDULE_TASK-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID"
+                                 referencedTableName="USERS"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SCHEDULE-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="SCHEDULE_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="SCHEDULE_SEQ" startValue="0"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet id="SCHEDULE-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="SCHEDULE"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="SCHEDULE">
+            <column name="SCHEDULE_ID" type="INT" defaultValueSequenceNext="SCHEDULE_SEQ">
+                <constraints primaryKey="true" primaryKeyName="SCHEDULE_PK"/>
+            </column>
+            <column name="SCHEDULE_TYPE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SECOND_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MINUTE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOUR_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DAY_ID" type="INT"/>
+            <column name="DAY_WEEK" type="INT"/>
+            <column name="MONTH_ID" type="INT"/>
+            <column name="YEAR_ID" type="INT"/>
+            <column name="DAY_END_MONTH" type="INT"/>
+            <column name="WEEK_MONTH" type="INT"/>
+            <column name="WEEK_END_MONTH" type="INT"/>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="PLAN_START_DATE" type="TIMESTAMP"/>
+            <column name="LAST_START_DATE" type="TIMESTAMP"/>
+            <column name="DIFFERENCE_TIME" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

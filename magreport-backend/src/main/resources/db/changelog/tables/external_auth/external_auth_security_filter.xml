@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="EXTERNAL_AUTH_SECURITY_FILTER-001">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="EXTERNAL_AUTH_SECURITY_FILTER_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="EXTERNAL_AUTH_SECURITY_FILTER_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="EXTERNAL_AUTH_SECURITY_FILTER-002">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="EXTERNAL_AUTH_SECURITY_FILTER"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="EXTERNAL_AUTH_SECURITY_FILTER">
+            <column name="EXTERNAL_AUTH_SECURITY_FILTER_ID" type="INT" defaultValueSequenceNext="EXTERNAL_AUTH_SECURITY_FILTER_SEQ">
+                <constraints primaryKey="true" primaryKeyName="EXTERNAL_AUTH_SECURITY_FILTER_PK"/>
+            </column>
+            <column name="EXTERNAL_AUTH_SOURCE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SECURITY_FILTER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

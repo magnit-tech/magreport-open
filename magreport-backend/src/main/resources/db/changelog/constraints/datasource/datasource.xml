@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="DATASOURCE-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DATASOURCE-DATASOURCE_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATASOURCE_TYPE_ID" baseTableName="DATASOURCE"
+                                 constraintName="FK-DATASOURCE-DATASOURCE_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATASOURCE_TYPE_ID" referencedTableName="DATASOURCE_TYPE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="DATASOURCE-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DATASOURCE-DATASOURCE_FOLDER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATASOURCE_FOLDER_ID" baseTableName="DATASOURCE"
+                                 constraintName="FK-DATASOURCE-DATASOURCE_FOLDER"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATASOURCE_FOLDER_ID" referencedTableName="DATASOURCE_FOLDER"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="DATASOURCE-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DATASOURCE-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="DATASOURCE"
+                                 constraintName="FK-DATASOURCE-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="USERS"/>
+    </changeSet>
+
+</databaseChangeLog>

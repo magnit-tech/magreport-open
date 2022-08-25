@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER_DATASET_FIELD-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER_DATASET_FIELD-SECURITY_FILTER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SECURITY_FILTER_ID" baseTableName="SECURITY_FILTER_DATASET_FIELD"
+                                 constraintName="FK-SECURITY_FILTER_DATASET_FIELD-SECURITY_FILTER"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SECURITY_FILTER_ID" referencedTableName="SECURITY_FILTER"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER_DATASET_FIELD-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER_DATASET_FIELD-FILTER_INSTANCE_FIELD"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_INSTANCE_FIELD_ID" baseTableName="SECURITY_FILTER_DATASET_FIELD"
+                                 constraintName="FK-SECURITY_FILTER_DATASET_FIELD-FILTER_INSTANCE_FIELD"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_INSTANCE_FIELD_ID" referencedTableName="FILTER_INSTANCE_FIELD"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER_DATASET_FIELD-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER_DATASET_FIELD-DATASET_FIELD"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATASET_FIELD_ID" baseTableName="SECURITY_FILTER_DATASET_FIELD"
+                                 constraintName="FK-SECURITY_FILTER_DATASET_FIELD-DATASET_FIELD"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATASET_FIELD_ID" referencedTableName="DATASET_FIELD"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="USER_ROLE_UNIQUE_INDEX-01">
+        <preConditions>
+            <not>
+                <indexExists schemaName="REPOSITORY" tableName="USER_ROLE" indexName="USER_ROLE_UNIQUE_INDEX"/>
+            </not>
+        </preConditions>
+        <createIndex schemaName="REPOSITORY" tableName="USER_ROLE" indexName="USER_ROLE_UNIQUE_INDEX" unique="true">
+            <column name="USER_ID" descending="false"/>
+            <column name="ROLE_ID" descending="false"/>
+            <column name="USER_ROLE_TYPE_ID" descending="false"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT_GROUP-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_REPORT_GROUP-FILTER_REPORT_GROUP"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="PARENT_ID" baseTableName="FILTER_REPORT_GROUP"
+                                 constraintName="FK-FILTER_REPORT_GROUP-FILTER_REPORT_GROUP"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_REPORT_GROUP_ID"
+                                 referencedTableName="FILTER_REPORT_GROUP"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT_GROUP-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_REPORT_GROUP-REPORT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_ID" baseTableName="FILTER_REPORT_GROUP"
+                                 constraintName="FK-FILTER_REPORT_GROUP-REPORT"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_ID"
+                                 referencedTableName="REPORT"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT_GROUP-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_REPORT_GROUP-REPORT_FILTER_GROUP_OPERATION_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_FILTER_GROUP_OPERATION_TYPE_ID" baseTableName="FILTER_REPORT_GROUP"
+                                 constraintName="FK-FILTER_REPORT_GROUP-REPORT_FILTER_GROUP_OPERATION_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_FILTER_GROUP_OPERATION_TYPE_ID"
+                                 referencedTableName="REPORT_FILTER_GROUP_OPERATION_TYPE"/>
+    </changeSet>
+
+</databaseChangeLog>

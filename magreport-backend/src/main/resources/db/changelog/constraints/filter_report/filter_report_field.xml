@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT_FIELD-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_REPORT_FIELD-FILTER_REPORT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_REPORT_ID" baseTableName="FILTER_REPORT_FIELD"
+                                 constraintName="FK-FILTER_REPORT_FIELD-FILTER_REPORT"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_REPORT_ID" referencedTableName="FILTER_REPORT"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT_FIELD-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_REPORT_FIELD-FILTER_INSTANCE_FIELD"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_INSTANCE_FIELD_ID" baseTableName="FILTER_REPORT_FIELD"
+                                 constraintName="FK-FILTER_REPORT_FIELD-FILTER_INSTANCE_FIELD"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_INSTANCE_FIELD_ID" referencedTableName="FILTER_INSTANCE_FIELD"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT_FIELD-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_REPORT_FIELD-REPORT_FIELD"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_FIELD_ID" baseTableName="FILTER_REPORT_FIELD"
+                                 constraintName="FK-FILTER_REPORT_FIELD-REPORT_FIELD"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_FIELD_ID" referencedTableName="REPORT_FIELD"/>
+    </changeSet>
+
+</databaseChangeLog>

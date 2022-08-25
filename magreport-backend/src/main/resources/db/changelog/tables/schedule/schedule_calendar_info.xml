@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SCHEDULE_CALENDAR_INFO-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="SCHEDULE_CALENDAR_INFO_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="SCHEDULE_CALENDAR_INFO_SEQ" startValue="0"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet id="SCHEDULE_CALENDAR_INFO-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="SCHEDULE_CALENDAR_INFO"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="SCHEDULE_CALENDAR_INFO">
+            <column name="DATE" type="TIMESTAMP" defaultValueSequenceNext="SCHEDULE_CALENDAR_INFO_SEQ">
+                <constraints primaryKey="true" primaryKeyName="DATE_PK"/>
+            </column>
+            <column name="DAY_ID" type="INT"/>
+            <column name="MONTH_ID" type="INT"/>
+            <column name="YEAR_ID" type="INT"/>
+            <column name="DAY_WEEK" type="INT"/>
+            <column name="DAY_END_MONTH" type="INT"/>
+            <column name="WEEK_MONTH" type="INT"/>
+            <column name="WEEK_END_MONTH" type="INT"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

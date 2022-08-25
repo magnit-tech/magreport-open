@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SCHEDULE_SCHEDULE_TASK-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="SCHEDULE_SCHEDULE_TASK"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="SCHEDULE_SCHEDULE_TASK">
+            <column name="SCHEDULE_TASK_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SCHEDULE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey schemaName="REPOSITORY" tableName="SCHEDULE_SCHEDULE_TASK" columnNames="SCHEDULE_ID,SCHEDULE_TASK_ID"/>
+    </changeSet>
+
+</databaseChangeLog>

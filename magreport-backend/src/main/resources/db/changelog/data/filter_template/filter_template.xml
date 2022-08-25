@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_TEMPLATE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_TEMPLATE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE">
+            <column name="FILTER_TYPE_ID" valueComputed="SELECT FILTER_TYPE_ID FROM REPOSITORY.FILTER_TYPE WHERE NAME='SINGLE_VALUE_UNBOUNDED'"/>
+            <column name="FILTER_TEMPLATE_FOLDER_ID" valueNumeric="1"/>
+            <column name="NAME" value="SINGLE_VALUE_UNBOUNDED"/>
+            <column name="DESCRIPTION" value="Фильтр по одному значению без привязки к справочнику"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE">
+            <column name="FILTER_TYPE_ID" valueComputed="SELECT FILTER_TYPE_ID FROM REPOSITORY.FILTER_TYPE WHERE NAME='RANGE'"/>
+            <column name="FILTER_TEMPLATE_FOLDER_ID" valueNumeric="1"/>
+            <column name="NAME" value="RANGE"/>
+            <column name="DESCRIPTION" value="Фильтр по диапазону значений 'от'...'до', включительно"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE">
+            <column name="FILTER_TYPE_ID" valueComputed="SELECT FILTER_TYPE_ID FROM REPOSITORY.FILTER_TYPE WHERE NAME='VALUE_LIST_UNBOUNDED'"/>
+            <column name="FILTER_TEMPLATE_FOLDER_ID" valueNumeric="1"/>
+            <column name="NAME" value="VALUE_LIST_UNBOUNDED"/>
+            <column name="DESCRIPTION" value="Фильтр по списку значений без привязки к справочнику"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE">
+            <column name="FILTER_TYPE_ID" valueComputed="SELECT FILTER_TYPE_ID FROM REPOSITORY.FILTER_TYPE WHERE NAME='VALUE_LIST'"/>
+            <column name="FILTER_TEMPLATE_FOLDER_ID" valueNumeric="1"/>
+            <column name="NAME" value="VALUE_LIST"/>
+            <column name="DESCRIPTION" value="Фильтр по списку значений с привязкой к справочнику, без подсказок"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE">
+            <column name="FILTER_TYPE_ID" valueComputed="SELECT FILTER_TYPE_ID FROM REPOSITORY.FILTER_TYPE WHERE NAME='TOKEN_INPUT'"/>
+            <column name="FILTER_TEMPLATE_FOLDER_ID" valueNumeric="1"/>
+            <column name="NAME" value="TOKEN_INPUT"/>
+            <column name="DESCRIPTION" value="Фильтр по списку значений с привязкой к справочнику, с подсказками"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE">
+            <column name="FILTER_TYPE_ID" valueComputed="SELECT FILTER_TYPE_ID FROM REPOSITORY.FILTER_TYPE WHERE NAME='HIERARCHY'"/>
+            <column name="FILTER_TEMPLATE_FOLDER_ID" valueNumeric="1"/>
+            <column name="NAME" value="HIERARCHY"/>
+            <column name="DESCRIPTION" value="Фильтр со строгой иерархией"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE">
+            <column name="FILTER_TYPE_ID" valueComputed="SELECT FILTER_TYPE_ID FROM REPOSITORY.FILTER_TYPE WHERE NAME='HIERARCHY_M2M'"/>
+            <column name="FILTER_TEMPLATE_FOLDER_ID" valueNumeric="1"/>
+            <column name="NAME" value="HIERARCHY_M2M"/>
+            <column name="DESCRIPTION" value="Фильтр с нестрогой иерархией"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE">
+            <column name="FILTER_TYPE_ID" valueComputed="SELECT FILTER_TYPE_ID FROM REPOSITORY.FILTER_TYPE WHERE NAME='DATE_RANGE'"/>
+            <column name="FILTER_TEMPLATE_FOLDER_ID" valueNumeric="1"/>
+            <column name="NAME" value="DATE_RANGE"/>
+            <column name="DESCRIPTION" value="Фильтр по диапазону дат 'от'...'до', включительно"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert tableName="FILTER_TEMPLATE">
+            <column name="FILTER_TYPE_ID" valueComputed="SELECT FILTER_TYPE_ID FROM REPOSITORY.FILTER_TYPE WHERE NAME='DATE_VALUE'"/>
+            <column name="FILTER_TEMPLATE_FOLDER_ID" valueNumeric="1"/>
+            <column name="NAME" value="DATE_VALUE"/>
+            <column name="DESCRIPTION" value="Фильтр по одной дате"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

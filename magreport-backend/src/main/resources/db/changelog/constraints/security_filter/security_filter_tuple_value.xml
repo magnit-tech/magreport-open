@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER_TUPLE_VALUE-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER_TUPLE_VALUE-SECURITY_FILTER_TUPLE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SECURITY_FILTER_TUPLE_ID" baseTableName="SECURITY_FILTER_TUPLE_VALUE"
+                                 constraintName="FK-SECURITY_FILTER_TUPLE_VALUE-SECURITY_FILTER_TUPLE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SECURITY_FILTER_TUPLE_ID" referencedTableName="SECURITY_FILTER_TUPLE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER_TUPLE_VALUE-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER_TUPLE_VALUE-FILTER_INSTANCE_FIELD"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_INSTANCE_FIELD_ID" baseTableName="SECURITY_FILTER_TUPLE_VALUE"
+                                 constraintName="FK-SECURITY_FILTER_TUPLE_VALUE-FILTER_INSTANCE_FIELD"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_INSTANCE_FIELD_ID" referencedTableName="FILTER_INSTANCE_FIELD"/>
+    </changeSet>
+
+</databaseChangeLog>

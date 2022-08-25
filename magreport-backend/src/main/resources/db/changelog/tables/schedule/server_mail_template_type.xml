@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SERVER_MAIL_TEMPLATE_TYPE-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="SERVER_MAIL_TEMPLATE_TYPE_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="SERVER_MAIL_TEMPLATE_TYPE_SEQ" startValue="0"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet id="SERVER_MAIL_TEMPLATE_TYPE-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE_TYPE"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE_TYPE">
+            <column name="SERVER_MAIL_TEMPLATE_TYPE_ID" type="INT"
+                    defaultValueSequenceNext="SERVER_MAIL_TEMPLATE_TYPE_SEQ">
+                <constraints primaryKey="true" primaryKeyName="PK_SERVER_MAIL_TEMPLATE_TYPE"/>
+            </column>
+            <column name="USER_ID" type="INT"/>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

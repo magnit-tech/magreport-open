@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="V_REPORT_INFO" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <viewExists schemaName="REPOSITORY" viewName="V_REPORT_INFO"/>
+            </not>
+        </preConditions>
+        <createView schemaName="REPOSITORY" viewName="V_REPORT_INFO"
+                    fullDefinition="false" replaceIfExists="true">
+            SELECT R.REPORT_ID,
+                   R.NAME         AS REPORT_NAME,
+                   FRG.PARENT_ID,
+                   FRG.FILTER_REPORT_GROUP_ID,
+                   FRG.CODE       AS FILTER_REPORT_GROUP_CODE,
+                   RFGOT.NAME     AS GROUP_OPERATION_TYPE,
+                   FR.FILTER_REPORT_ID,
+                   FT.NAME        AS FILTER_TEMPLATE_NAME,
+                   FR.CODE        AS FILTER_CODE,
+                   FRF.FILTER_REPORT_FIELD_ID,
+                   DT.NAME        AS FILTER_FIELD_TYPE_DATA,
+                   DTR.NAME       AS REPORT_FIELD_TYPE_DATA,
+                   FFT.NAME       AS FILTER_FIELD_TYPE,
+                   DF.DATASET_ID  AS FILTER_FIELD_DATASET_ID,
+                   DFR.DATASET_ID AS REPORT_FIELD_DATASET_ID
+            FROM REPOSITORY.REPORT R
+                     LEFT JOIN REPOSITORY.FILTER_REPORT_GROUP FRG ON R.REPORT_ID = FRG.REPORT_ID
+                     LEFT JOIN REPOSITORY.REPORT_FILTER_GROUP_OPERATION_TYPE RFGOT
+                               ON FRG.REPORT_FILTER_GROUP_OPERATION_TYPE_ID =
+                                  RFGOT.REPORT_FILTER_GROUP_OPERATION_TYPE_ID
+                     LEFT JOIN REPOSITORY.FILTER_REPORT FR ON FR.FILTER_REPORT_GROUP_ID = FRG.FILTER_REPORT_GROUP_ID
+                     LEFT JOIN REPOSITORY.FILTER_INSTANCE FI ON FI.FILTER_INSTANCE_ID = FR.FILTER_INSTANCE_ID
+                     LEFT JOIN REPOSITORY.FILTER_TEMPLATE FT ON FI.FILTER_TEMPLATE_ID = FT.FILTER_TEMPLATE_ID
+                     LEFT JOIN REPOSITORY.FILTER_REPORT_FIELD FRF ON FRF.FILTER_REPORT_ID = FR.FILTER_REPORT_ID
+                     LEFT JOIN REPOSITORY.FILTER_INSTANCE_FIELD FIF
+                               ON FRF.FILTER_INSTANCE_FIELD_ID = FIF.FILTER_INSTANCE_FIELD_ID
+                     LEFT JOIN REPOSITORY.DATASET_FIELD DF ON FIF.DATASET_FIELD_ID = DF.DATASET_FIELD_ID
+                     LEFT JOIN REPOSITORY.DATA_TYPE DT ON DF.DATA_TYPE_ID = DT.DATA_TYPE_ID
+                     LEFT JOIN REPOSITORY.FILTER_TEMPLATE_FIELD FTF
+                               ON FTF.FILTER_TEMPLATE_FIELD_ID = FIF.FILTER_TEMPLATE_FIELD_ID
+                     LEFT JOIN REPOSITORY.FILTER_FIELD_TYPE FFT ON FFT.FILTER_FIELD_TYPE_ID = FTF.FILTER_FIELD_TYPE_ID
+                     LEFT JOIN REPOSITORY.REPORT_FIELD RF ON FRF.REPORT_FIELD_ID = RF.REPORT_FIELD_ID
+                     LEFT JOIN REPOSITORY.DATASET_FIELD DFR ON DFR.DATASET_FIELD_ID = RF.DATASET_FIELD_ID
+                     LEFT JOIN REPOSITORY.DATA_TYPE DTR ON DFR.DATA_TYPE_ID = DTR.DATA_TYPE_ID;
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="DATASET-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DATASET-DATASOURCE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATASOURCE_ID" baseTableName="DATASET"
+                                 constraintName="FK-DATASET-DATASOURCE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATASOURCE_ID" referencedTableName="DATASOURCE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="DATASET-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DATASET-DATASET_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATASET_TYPE_ID" baseTableName="DATASET"
+                                 constraintName="FK-DATASET-DATASET_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATASET_TYPE_ID" referencedTableName="DATASET_TYPE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="DATASET-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DATASET-DATASET_FOLDER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATASET_FOLDER_ID" baseTableName="DATASET"
+                                 constraintName="FK-DATASET-DATASET_FOLDER"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATASET_FOLDER_ID" referencedTableName="DATASET_FOLDER"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="DATASET-004">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DATASET-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="DATASET"
+                                 constraintName="FK-DATASET-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="USERS"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB_TUPLE_FIELD-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB_TUPLE_FIELD-REPORT_JOB_TUPLE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_JOB_TUPLE_ID" baseTableName="REPORT_JOB_TUPLE_FIELD"
+                                 constraintName="FK-REPORT_JOB_TUPLE_FIELD-REPORT_JOB_TUPLE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_JOB_TUPLE_ID" referencedTableName="REPORT_JOB_TUPLE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB_TUPLE_FIELD-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB_TUPLE_FIELD-FILTER_REPORT_FIELD"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_REPORT_FIELD_ID" baseTableName="REPORT_JOB_TUPLE_FIELD"
+                                 constraintName="FK-REPORT_JOB_TUPLE_FIELD-FILTER_REPORT_FIELD"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_REPORT_FIELD_ID" referencedTableName="FILTER_REPORT_FIELD"/>
+    </changeSet>
+
+</databaseChangeLog>

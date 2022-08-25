@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="DATASET-001" author="artemenko_pa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="DATASET"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="DATASET">
+            <column name="DATASOURCE_ID" value="1"/>
+            <column name="DATASET_TYPE_ID" value="0"/>
+            <column name="DATASET_FOLDER_ID" value="1"/>
+            <column name="CATALOG_NAME" value=""/>
+            <column name="SCHEMA_NAME" value="REPOSITORY"/>
+            <column name="OBJECT_NAME" value="USER"/>
+            <column name="NAME" value="USER"/>
+            <column name="DESCRIPTION" value="Справочник пользователей"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET">
+            <column name="DATASOURCE_ID" value="1"/>
+            <column name="DATASET_TYPE_ID" value="0"/>
+            <column name="DATASET_FOLDER_ID" value="1"/>
+            <column name="CATALOG_NAME" value=""/>
+            <column name="SCHEMA_NAME" value="REPOSITORY"/>
+            <column name="OBJECT_NAME" value="REPORT"/>
+            <column name="NAME" value="REPORT"/>
+            <column name="DESCRIPTION" value="Справочник отчётов"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET">
+            <column name="DATASOURCE_ID" value="1"/>
+            <column name="DATASET_TYPE_ID" value="0"/>
+            <column name="DATASET_FOLDER_ID" value="1"/>
+            <column name="CATALOG_NAME" value=""/>
+            <column name="SCHEMA_NAME" value="REPOSITORY"/>
+            <column name="OBJECT_NAME" value="REPORT_JOB_STATUS"/>
+            <column name="NAME" value="REPORT_JOB_STATUS"/>
+            <column name="DESCRIPTION" value="Справочник статусов отчетов"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET">
+            <column name="DATASOURCE_ID" value="1"/>
+            <column name="DATASET_TYPE_ID" value="0"/>
+            <column name="DATASET_FOLDER_ID" value="1"/>
+            <column name="CATALOG_NAME" value=""/>
+            <column name="SCHEMA_NAME" value="REPOSITORY"/>
+            <column name="OBJECT_NAME" value="REPORT_EXECUTION_STATISTIC"/>
+            <column name="NAME" value="REPORT_EXECUTION_STATISTIC"/>
+            <column name="DESCRIPTION" value="Набор данных со статистикой запусков отчётов пользователями"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

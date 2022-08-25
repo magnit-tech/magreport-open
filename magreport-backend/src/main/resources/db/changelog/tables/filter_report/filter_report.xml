@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT-001">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="FILTER_REPORT_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="FILTER_REPORT_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT-002">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="FILTER_REPORT"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="FILTER_REPORT">
+            <column name="FILTER_REPORT_ID" type="INT" defaultValueSequenceNext="FILTER_REPORT_SEQ">
+                <constraints primaryKey="true" primaryKeyName="FILTER_REPORT_PK"/>
+            </column>
+            <column name="FILTER_REPORT_GROUP_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FILTER_INSTANCE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="ORDINAL" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_HIDDEN" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_MANDATORY" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_ROOT_SELECTABLE" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CODE" type="VARCHAR(255)" defaultValue="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

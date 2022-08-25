@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="DESTINATION_ROLE-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="DESTINATION_ROLE_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="DESTINATION_ROLE_SEQ" startValue="0"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet id="DESTINATION_ROLE-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="DESTINATION_ROLE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="DESTINATION_ROLE" schemaName="REPOSITORY">
+            <column name="DESTINATION_ROLE_ID" type="INT"
+                    defaultValueSequenceNext="DESTINATION_ROLE_SEQ">
+                <constraints primaryKey="true" primaryKeyName="PK_DESTINATION_ROLE_SEQ"/>
+            </column>
+            <column name="SCHEDULE_TASK_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)" defaultValue=""/>
+            <column name="DESTINATION_TYPE_ID" type="INT" defaultValue="0"/>
+            <column name="VAL" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

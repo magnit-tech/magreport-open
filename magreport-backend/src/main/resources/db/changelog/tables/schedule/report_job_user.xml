@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="REPORT_JOB_USER-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="REPORT_JOB_USER_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="REPORT_JOB_USER_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet id="REPORT_JOB_USER-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="REPORT_JOB_USER"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="REPORT_JOB_USER">
+            <column name="REPORT_JOB_USER_ID" type="INT" defaultValueSequenceNext="REPORT_JOB_USER_SEQ">
+                <constraints primaryKey="true" primaryKeyName="REPORT_JOB_USER_PK"/>
+            </column>
+            <column name="REPORT_JOB_USER_TYPE_ID" type="INT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REPORT_JOB_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

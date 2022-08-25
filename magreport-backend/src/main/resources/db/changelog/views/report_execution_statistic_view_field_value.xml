@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_EXECUTION_STATISTIC_VIEW_FIELD_VALUE">
+        <preConditions>
+            <not>
+                <viewExists schemaName="REPOSITORY" viewName="REPORT_EXECUTION_STATISTIC_VIEW_FIELD_VALUE"/>
+            </not>
+        </preConditions>
+        <createView schemaName="REPOSITORY" viewName="REPORT_EXECUTION_STATISTIC_VIEW_FIELD_VALUE"
+                    fullDefinition="false" replaceIfExists="true">
+            SELECT RES.REPORT_JOB_ID,
+                   FORMATDATETIME(RES.QUEUING_TIME, 'yyyy-MM-dd')     as DAY_ID,
+                   RES.USER_NAME,
+                   RES.FIO,
+                   RES.REPORT_ID,
+                   RES.REPORT_NAME,
+                   RES.QUEUING_TIME,
+                   RES.START_TIME,
+                   DATEDIFF(second, RES.QUEUING_TIME, RES.START_TIME) AS QUEUE_TIME_IN_SEC,
+                   RES.DATA_TIME,
+                   RES.ROW_COUNT,
+                   RES.FINISH_TIME,
+                   DATEDIFF(second, RES.START_TIME, RES.FINISH_TIME)  AS RUNNING_TIME_IN_SEC,
+                   RES.FINAL_STATUS,
+                   RJDFV.DAY_ID_FROM,
+                   RJDFV.DAY_ID_TO,
+                   RJDFV.DAY_ID_CNT,
+                   RJDFV.WEEK_ID_FROM,
+                   RJDFV.WEEK_ID_TO,
+                   RJDFV.WEEK_CNT,
+                   RJDFV.MONTH_ID_FROM,
+                   RJDFV.MONTH_ID_TO,
+                   RJDFV.MONTH_CNT
+            FROM REPOSITORY.REPORT_EXECUTION_STATISTIC RES
+                     LEFT JOIN REPOSITORY.REPORT_JOB_DATE_FILTER_VALUES RJDFV
+                               ON RJDFV.REPORT_JOB_ID = RES.REPORT_JOB_ID;
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

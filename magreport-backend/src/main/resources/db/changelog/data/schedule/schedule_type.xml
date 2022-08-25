@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="SCHEDULE_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="SCHEDULE_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TYPE">
+            <column name="NAME" value="EVERY_DAY"/>
+            <column name="DESCRIPTION" value="каждый день в заданное время"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TYPE">
+            <column name="NAME" value="EVERY_WEEK"/>
+            <column name="DESCRIPTION" value="по указанному дню недели в заданное время"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TYPE">
+            <column name="NAME" value="EVERY_MONTH"/>
+            <column name="DESCRIPTION" value="по указанному дню месяца в заданное время"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TYPE">
+            <column name="NAME" value="DAY_END_MONTH"/>
+            <column name="DESCRIPTION" value="по указанному дню до конца месяца"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TYPE">
+            <column name="NAME" value="WEEK_MONTH"/>
+            <column name="DESCRIPTION" value="по дню недели с соответствующим порядковым номером от начала месяца в заданное время"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TYPE">
+            <column name="NAME" value="WEEK_END_MONTH"/>
+            <column name="DESCRIPTION" value="по дню недели с соответствующим порядковым номером от конца месяца в заданное время"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="SCHEDULE_TYPE">
+            <column name="NAME" value="MANUAL"/>
+            <column name="DESCRIPTION" value="По требованию"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

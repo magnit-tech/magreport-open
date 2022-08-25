@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="USER_ROLE_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="USER_ROLE_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="USER_ROLE_TYPE">
+            <column name="name" value="MANUAL"/>
+            <column name="description" value="Роль назначена администратором"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="USER_ROLE_TYPE">
+            <column name="name" value="DOMAIN"/>
+            <column name="description" value="Роль получена за членство в доменной группе"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

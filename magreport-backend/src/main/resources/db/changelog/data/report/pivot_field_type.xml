@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="PIVOT_FIELD_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="PIVOT_FIELD_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="PIVOT_FIELD_TYPE">
+            <column name="NAME" value="DEFAULT"/>
+            <column name="DESCRIPTION" value="Default field"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="PIVOT_FIELD_TYPE">
+            <column name="NAME" value="FILTER"/>
+            <column name="DESCRIPTION" value="Filter field"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="PIVOT_FIELD_TYPE">
+            <column name="NAME" value="COLUMN"/>
+            <column name="DESCRIPTION" value="Column field"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="PIVOT_FIELD_TYPE">
+            <column name="NAME" value="ROW"/>
+            <column name="DESCRIPTION" value="Row field"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="PIVOT_FIELD_TYPE">
+            <column name="NAME" value="VALUE"/>
+            <column name="DESCRIPTION" value="Value field"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

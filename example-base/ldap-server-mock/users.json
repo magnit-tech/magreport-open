@@ -1,0 +1,9 @@
+[
+  {
+    "dn": "cn=user,dc=test",
+    "objectClass": "person",
+    "cn": "user",
+    "attribute1": "value1",
+    "attribute2": "value2"
+  } 
+]

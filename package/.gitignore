@@ -1,0 +1,11 @@
+### magreport application jar ###
+magreport.jar
+application.properties.template
+logback.xml.template
+user-manual.pdf
+
+### magreport db ###
+./db/*
+
+### magreport log ###
+./log/*

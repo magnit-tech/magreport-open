@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="REPORT_OLAP_CONFIGURATION-001" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_OLAP_CONFIGURATION-REPORT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_ID" baseTableName="REPORT_OLAP_CONFIGURATION"
+                                 constraintName="FK-REPORT_OLAP_CONFIGURATION-REPORT"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_ID" referencedTableName="REPORT"/>
+    </changeSet>
+
+    <changeSet id="REPORT_OLAP_CONFIGURATION-002" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_OLAP_CONFIGURATION-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="REPORT_OLAP_CONFIGURATION"
+                                 constraintName="FK-REPORT_OLAP_CONFIGURATION-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="USERS"/>
+    </changeSet>
+
+    <changeSet id="REPORT_OLAP_CONFIGURATION-003" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_OLAP_CONFIGURATION-REPORT_JOB"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_JOB_ID" baseTableName="REPORT_OLAP_CONFIGURATION"
+                                 constraintName="FK-REPORT_OLAP_CONFIGURATION-REPORT_JOB"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_JOB_ID" referencedTableName="REPORT_JOB"/>
+    </changeSet>
+
+    <changeSet id="REPORT_OLAP_CONFIGURATION-004" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_OLAP_CONFIGURATION-OLAP_CONFIGURATION"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="OLAP_CONFIGURATION_ID" baseTableName="REPORT_OLAP_CONFIGURATION"
+                                 constraintName="FK-REPORT_OLAP_CONFIGURATION-OLAP_CONFIGURATION"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="OLAP_CONFIGURATION_ID" referencedTableName="OLAP_CONFIGURATION"/>
+    </changeSet>
+
+    <changeSet id="REPORT_OLAP_CONFIGURATION-005" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_OLAP_CONFIGURATION_AUTHOR-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="CREATOR_ID" baseTableName="REPORT_OLAP_CONFIGURATION"
+                                 constraintName="FK-REPORT_OLAP_CONFIGURATION_AUTHOR-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="USERS"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="report_job_stat_view" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <viewExists schemaName="REPOSITORY" viewName="REPORT_JOB_STAT_VIEW"/>
+            </not>
+        </preConditions>
+        <createView schemaName="REPOSITORY" viewName="REPORT_JOB_STAT_VIEW"
+                    fullDefinition="false" replaceIfExists="true">
+            SELECT *,
+                   LAST_VALUE(STAT.REPORT_JOB_STATUS_ID) OVER (PARTITION BY STAT.REPORT_JOB_ID ORDER BY STAT.CREATED RANGE BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING) AS LAST_STATUS_ID
+            FROM REPOSITORY.REPORT_JOB_STATISTICS STAT;
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

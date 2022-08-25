@@ -1,0 +1,42 @@
+\documentclass[a4paper, 11pt]{scrbook}
+
+\usepackage[english, russian]{babel}
+
+\usepackage{subfiles}
+
+\usepackage{listings}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Магрепорт - Руководство пользователя},
+	pdfpagemode=UseOutlines,
+}
+
+\usepackage{user-manual}
+
+\newcommand{\graphicswidth}{0.7\textwidth}
+
+\begin{document}
+	
+	\tableofcontents
+
+	\chapter{Установка и настройка системы} \label{chapter:installation-and-settings}
+	\subfile{./1-installation-and-settings/installation-and-settings}
+	
+	\chapter{Выполнение и выгрузка отчёта} \label{chapter:report-running}
+	\subfile{./2-report-running/report-running}	
+	
+	\chapter{Администрирование системы} \label{chapter:administration}
+	\subfile{./3-administration/administration}
+	
+	\chapter{Разработка отчётов и связанных объектов} \label{chapter:developing}
+	\subfile{./4-developing/developing}
+	
+	
+\end{document}

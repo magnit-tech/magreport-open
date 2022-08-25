@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="DATASOURCE_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="DATASOURCE_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="DATASOURCE_TYPE">
+            <column name="NAME" value="H2"/>
+            <column name="DESCRIPTION" value="H2 DATABASE"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASOURCE_TYPE">
+            <column name="NAME" value="TERADATA"/>
+            <column name="DESCRIPTION" value="TERADATA DATABASE"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASOURCE_TYPE">
+            <column name="NAME" value="IMPALA"/>
+            <column name="DESCRIPTION" value="IMPALA DATABASE"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASOURCE_TYPE">
+            <column name="NAME" value="ORACLE"/>
+            <column name="DESCRIPTION" value="ORACLE DATABASE"/>
+        </insert>
+        <insert tableName="DATASOURCE_TYPE">
+            <column name="NAME" value="MSSQL"/>
+            <column name="DESCRIPTION" value="MS SQL Server"/>
+        </insert>
+        <insert tableName="DATASOURCE_TYPE">
+            <column name="NAME" value="POSTGRESQL"/>
+            <column name="DESCRIPTION" value="POSTGRESQL DATABASE" />
+        </insert>
+        <insert tableName="DATASOURCE_TYPE">
+            <column name="NAME" value="DB2"/>
+            <column name="DESCRIPTION" value="DB2 DATABASE" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

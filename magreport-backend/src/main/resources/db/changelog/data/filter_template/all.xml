@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <include file="classpath:/db/changelog/data/filter_template/filter_field_type.xml"/>
+    <include file="classpath:/db/changelog/data/filter_template/filter_operation_type.xml"/>
+    <include file="classpath:/db/changelog/data/filter_template/filter_type.xml"/>
+    <include file="classpath:/db/changelog/data/filter_template/filter_template_folder.xml"/>
+    <include file="classpath:/db/changelog/data/filter_template/filter_template.xml"/>
+    <include file="classpath:/db/changelog/data/filter_template/filter_template_field.xml"/>
+    <include file="classpath:/db/changelog/data/filter_template/filter_template_operation.xml"/>
+
+</databaseChangeLog>

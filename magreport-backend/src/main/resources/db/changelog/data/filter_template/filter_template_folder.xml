@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_TEMPLATE_FOLDER-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FOLDER"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FOLDER">
+            <column name="NAME" value="Дефолтные шаблоны фильтров"/>
+            <column name="DESCRIPTION" value="Дефолтные шаблоны фильтров"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="USER_STATUS-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="USER_STATUS"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="USER_STATUS">
+            <column name="name" value="DISABLED"/>
+            <column name="description" value="Учетная запись заблокирована"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="USER_STATUS">
+            <column name="name" value="ACTIVE"/>
+            <column name="description" value="Активная учетная запись"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="USER_STATUS">
+            <column name="name" value="LOGGED_OFF"/>
+            <column name="description" value="Учетная запись требует повторной аутентификации"/>
+        </insert>
+        <insert tableName="USER_STATUS" schemaName="REPOSITORY" >
+            <column name="NAME" value="ARCHIVE"/>
+            <column name="DESCRIPTION" value="Архивная учетная запись"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

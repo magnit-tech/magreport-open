@@ -1,0 +1,358 @@
+{
+  "properties": [
+    {
+      "name": "spring.ldap.url",
+      "type": "java.lang.String",
+      "description": "Description for spring.ldap.url."
+    },
+    {
+      "name": "spring.ldap.domain",
+      "type": "java.lang.String",
+      "description": "Description for spring.ldap.domain."
+    },
+    {
+      "name": "jwt.properties.validityDuration",
+      "type": "java.lang.String",
+      "description": "Description for jwt.properties.validityDuration."
+    },
+    {
+      "name": "jwt.properties.secretKey",
+      "type": "java.lang.String",
+      "description": "Description for jwt.properties.secretKey."
+    },
+    {
+      "name": "jwt.properties.tokenPrefix",
+      "type": "java.lang.String",
+      "description": "Description for jwt.properties.tokenPrefix."
+    },
+    {
+      "name": "jwt.properties.headerString",
+      "type": "java.lang.String",
+      "description": "Description for jwt.properties.headerString."
+    },
+    {
+      "name": "magreport.mail.domain",
+      "type": "java.lang.String",
+      "description": "Description for magreport.mail.domain."
+    },
+    {
+      "name": "magreport.excel-template.folder",
+      "type": "java.lang.String",
+      "description": "Description for magreport.excel-template.folder."
+    },
+    {
+      "name": "magreport.reports.folder",
+      "type": "java.lang.String",
+      "description": "Description for magreport.reports.folder."
+    },
+    {
+      "name": "magreport.query-templates.h2",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.h2."
+    },
+    {
+      "name": "magreport.query-templates.teradata",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.teradata."
+    },
+    {
+      "name": "magreport.query-templates.impala",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.impala."
+    },
+    {
+      "name": "magreport.query-templates.filter.value-list.h2",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.value-list.h2."
+    },
+    {
+      "name": "magreport.query-templates.filter.value-list.teradata",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.value-list.teradata."
+    },
+    {
+      "name": "magreport.query-templates.filter.child-nodes.h2",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.child-nodes.h2."
+    },
+    {
+      "name": "magreport.query-templates.filter.child-nodes.teradata",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.child-nodes.teradata."
+    },
+    {
+      "name": "magreport.query-templates.filter.fields.teradata",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.fields.teradata."
+    },
+    {
+      "name": "magreport.query-templates.filter.fields.h2",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.fields.h2."
+    },
+    {
+      "name": "magreport.jobengine.thread-pool-size",
+      "type": "java.lang.String",
+      "description": "Description for magreport.jobengine.thread-pool-size."
+    },
+    {
+      "name": "magreport.jobengine.thread-name-prefix",
+      "type": "java.lang.String",
+      "description": "Description for magreport.jobengine.thread-name-prefix."
+    },
+    {
+      "name": "magreport.reports.rms-in-folder",
+      "type": "java.lang.String",
+      "description": "Description for magreport.reports.rms-in-folder."
+    },
+    {
+      "name": "magreport.reports.rms-out-folder",
+      "type": "java.lang.String",
+      "description": "Description for magreport.reports.rms-out-folder."
+    },
+    {
+      "name": "magreport.frontend.root.path",
+      "type": "java.lang.String",
+      "description": "Description for magreport.frontend.root.path."
+    },
+    {
+      "name": "magreport.query-templates.filter.value-list.impala",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.value-list.impala."
+    },
+    {
+      "name": "magreport.query-templates.filter.child-nodes.impala",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.child-nodes.impala."
+    },
+    {
+      "name": "magreport.query-templates.filter.fields.impala",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.fields.impala."
+    },
+    {
+      "name": "magreport.asm.refresh-schedule",
+      "type": "java.lang.String",
+      "description": "Description for magreport.asm.refresh-schedule."
+    },
+    {
+      "name": "magreport.jobengine.history-clear-schedule",
+      "type": "java.lang.String",
+      "description": "Description for magreport.jobengine.history-clear-schedule."
+    },
+    {
+      "name": "magreport.jobengine.job-retention-time",
+      "type": "java.lang.Long",
+      "description": "Description for magreport.jobengine.job-retention-time."
+    },
+    {
+      "name": "magreport.jobengine.max-rows",
+      "type": "java.lang.String",
+      "description": "Description for magreport.jobengine.max-rows."
+    },
+    {
+      "name": "magreport.query-templates.proc-meta.tables",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.proc-meta.tables."
+    },
+    {
+      "name": "magreport.query-templates.proc-meta.temp-tables",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.proc-meta.temp-tables."
+    },
+    {
+      "name": "magreport.query-templates.proc-meta.procedures",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.proc-meta.procedures."
+    },
+    {
+      "name": "magreport.query-templates.proc-meta.path",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.proc-meta.path."
+    },
+    {
+      "name": "mail.debug",
+      "type": "java.lang.String",
+      "description": "Description for mail.debug."
+    },
+    {
+      "name": "mailAddressFrom",
+      "type": "java.lang.String",
+      "description": "Description for mailAddressFrom."
+    },
+    {
+      "name": "magreport.excel-file-buffer",
+      "type": "java.lang.String",
+      "description": "Description for magreport.excel-file-buffer."
+    },
+    {
+      "name": "magreport.query-templates.oracle",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.oracle."
+    },
+    {
+      "name": "magreport.query-templates.filter.value-list.oracle",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.value-list.oracle."
+    },
+    {
+      "name": "magreport.query-templates.filter.child-nodes.oracle",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.child-nodes.oracle."
+    },
+    {
+      "name": "magreport.query-templates.filter.fields.oracle",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.fields.oracle."
+    },
+    {
+      "name": "mail.port",
+      "type": "java.lang.String",
+      "description": "Description for mail.port."
+    },
+    {
+      "name": "magreport.mvc.excel-exporter.thread-pool-size",
+      "type": "java.lang.String",
+      "description": "Description for magreport.mvc.excel-exporter.thread-pool-size."
+    },
+    {
+      "name": "magreport.excel-template.nameDataList",
+      "type": "java.lang.String",
+      "description": "Description for magreport.excel-template.nameDataList."
+    },
+    {
+      "name": "magreport.query-templates.mssql",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.mssql."
+    },
+    {
+      "name": "magreport.query-templates.filter.value-list.mssql",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.value-list.mssql."
+    },
+    {
+      "name": "magreport.query-templates.filter.child-nodes.mssql",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.child-nodes.mssql."
+    },
+    {
+      "name": "magreport.query-templates.filter.fields.mssql",
+      "type": "java.lang.String",
+      "description": "Description for magreport.query-templates.filter.fields.mssql."
+    },
+    {
+      "name": "superuser-param-name",
+      "type": "java.lang.String",
+      "description": "Description for superuser-param-name."
+    },
+    {
+      "name": "superuser-param-email",
+      "type": "java.lang.String",
+      "description": "Description for superuser-param-email."
+    },
+    {
+      "name": "ldap-settings.group-path",
+      "type": "java.lang.String",
+      "description": "Description for ldap-settings.group-path."
+    },
+    {
+      "name": "ldap-settings.user-path",
+      "type": "java.lang.String",
+      "description": "Description for ldap-settings.user-path."
+    },
+    {
+      "name": "ldap-settings.type",
+      "type": "java.lang.String",
+      "description": "Description for ldap-settings.type."
+    },
+    {
+      "name": "ldap-settings.user-template-dn",
+      "type": "java.lang.String",
+      "description": "Description for ldap-settings.user-template-dn."
+    },
+    {
+      "name": "magreport.jobengine.wait-rms",
+      "type": "java.lang.String",
+      "description": "Description for magreport.jobengine.wait-rms."
+    },
+    {
+      "name": "magreport.jobengine.clean-rms-out-folder",
+      "type": "java.lang.String",
+      "description": "Description for magreport.jobengine.clean-rms-out-folder."
+    },
+    {
+      "name": "mail.adminMailBox",
+      "type": "java.lang.String",
+      "description": "Description for mail.adminMailBox."
+    },
+    {
+      "name": "magreport.host",
+      "type": "java.lang.String",
+      "description": "Description for magreport.host."
+    },
+    {
+      "name": "magreport.scheduleengine.check-last-date-calendar",
+      "type": "java.lang.String",
+      "description": "Description for magreport.scheduleengine.check-last-date-calendar."
+    },
+    {
+      "name": "magreport.schedule-mail-task-complete-excel",
+      "type": "java.lang.String",
+      "description": "Description for magreport.schedule-mail-task-complete-excel."
+    },
+    {
+      "name": "magreport.schedule-mail-task-complete-web",
+      "type": "java.lang.String",
+      "description": "Description for magreport.schedule-mail-task-complete-web."
+    },
+    {
+      "name": "magreport.schedule-mail-task-expired",
+      "type": "java.lang.String",
+      "description": "Description for magreport.schedule-mail-task-expired."
+    },
+    {
+      "name": "magreport.schedule-mail-task-changed",
+      "type": "java.lang.String",
+      "description": "Description for magreport.schedule-mail-task-changed."
+    },
+    {
+      "name": "magreport.schedule-mail-task-inform-expired",
+      "type": "java.lang.String",
+      "description": "Description for magreport.schedule-mail-task-inform-expired."
+    },
+    {
+      "name": "magreport.schedule-mail-task-failed",
+      "type": "java.lang.String",
+      "description": "Description for magreport.schedule-mail-task-failed."
+    },
+    {
+      "name": "magreport.max-level-hierarchy",
+      "type": "java.lang.String",
+      "description": "Description for magreport.max-level-hierarchy."
+    },
+    {
+      "name": "magreport.olap.max-cache-size",
+      "type": "java.lang.String",
+      "description": "Maximum number of cubes retained in cube cache."
+    },
+    {
+      "name": "magreport.size-batch-search-in-ldap",
+      "type": "java.lang.String",
+      "description": "Description for magreport.size-batch-search-in-ldap."
+    },
+    {
+      "name": "magreport.multipart-file-sender.time-beetwen-of-attempts",
+      "type": "java.lang.String",
+      "description": "Description for magreport.multipart-file-sender.time-beetwen-of-attempts."
+    },
+    {
+      "name": "magreport.jobengine.initial-delay",
+      "type": "java.lang.String",
+      "description": "Description for magreport.jobengine.initial-delay."
+    },
+    {
+      "name": "magreport.jobengine.fixed-delay",
+      "type": "java.lang.String",
+      "description": "Description for magreport.jobengine.fixed-delay."
+    }
+  ] }

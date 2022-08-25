@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="EXCEL_TEMPLATE_FOLDER_ROLE-001">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="EXCEL_TEMPLATE_FOLDER_ROLE_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="EXCEL_TEMPLATE_FOLDER_ROLE_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+
+    <changeSet author="artemenko_pa" id="EXCEL_TEMPLATE_FOLDER_ROLE-002">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="EXCEL_TEMPLATE_FOLDER_ROLE"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="EXCEL_TEMPLATE_FOLDER_ROLE">
+            <column name="EXCEL_TEMPLATE_FOLDER_ROLE_ID" type="INT" defaultValueSequenceNext="EXCEL_TEMPLATE_FOLDER_ROLE_SEQ">
+                <constraints primaryKey="true" primaryKeyName="EXCEL_TEMPLATE_FOLDER_ROLE_PK"/>
+            </column>
+            <column name="EXCEL_TEMPLATE_FOLDER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

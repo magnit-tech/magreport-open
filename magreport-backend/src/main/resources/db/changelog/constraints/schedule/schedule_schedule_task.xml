@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SCHEDULE_SCHEDULE_TASK-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SCHEDULE_SCHEDULE_TASK-SCHEDULE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SCHEDULE_ID" baseTableName="SCHEDULE_SCHEDULE_TASK"
+                                 constraintName="FK-SCHEDULE_SCHEDULE_TASK-SCHEDULE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SCHEDULE_ID"
+                                 referencedTableName="SCHEDULE"/>
+    </changeSet>
+
+    <changeSet id="SCHEDULE_SCHEDULE_TASK-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SCHEDULE_SCHEDULE_TASK-SCHEDULE_TASK"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SCHEDULE_TASK_ID" baseTableName="SCHEDULE_SCHEDULE_TASK"
+                                 constraintName="FK-SCHEDULE_SCHEDULE_TASK-SCHEDULE_TASK"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SCHEDULE_TASK_ID"
+                                 referencedTableName="SCHEDULE_TASK"/>
+    </changeSet>
+
+</databaseChangeLog>

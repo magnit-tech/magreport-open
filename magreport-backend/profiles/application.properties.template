@@ -1,0 +1,85 @@
+superuser-param-name=superuser
+superuser-param-email=superuser@example.com
+
+# Repository configuration
+spring.datasource.url=jdbc:h2:file:./db/db
+spring.datasource.initialization-mode=always
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.datasource.hikari.maximum-pool-size=50
+spring.h2.console.enabled=true
+spring.h2.console.settings.web-allow-others=true
+
+
+# AD properties
+spring.ldap.url=
+spring.ldap.base=
+spring.ldap.domain=
+ldap-settings.group-path=
+ldap-settings.user-path=
+ldap-settings.type=
+ldap-settings.user-template-dn=
+ldap-settings.user-ldap-filter=
+ldap-settings.search-batch-size = 1000
+
+
+# Jwt properties
+jwt.properties.validityDuration=864000000
+jwt.properties.secretKey=SecretKeyForIssuingJwtTokens2019
+
+
+# HTTPS properties
+# The path to the keystore containing the certificate
+server.ssl.key-store=
+# The password used to generate the certificate
+server.ssl.key-store-password=
+# The alias mapped to the certificate
+server.ssl.key-alias=
+server.port=
+
+#Excel template settings
+magreport.excel-template.folder=./excel-templates
+magreport.excel-template.nameDataList=data
+
+#Reports folder
+magreport.reports.folder=
+magreport.reports.rms-in-folder=
+magreport.reports.rms-out-folder=
+#magreport.reports.rms-in-folder=
+#magreport.reports.rms-out-folder=
+
+# JobEngine properties
+magreport.jobengine.thread-pool-size=10
+magreport.jobengine.thread-name-prefix=JobEngine-Worker-Thread
+magreport.jobengine.max-rows=1000000
+magreport.mvc.excel-exporter.thread-pool-size=20
+
+# Scheduled tasks executors
+spring.task.scheduling.pool.size=5
+
+#ASM settings
+magreport.asm.refresh-schedule=0 0 7 * * *
+
+# Job history clearing
+magreport.jobengine.history-clear-schedule=0 0 23 * * *
+magreport.jobengine.job-retention-time=336
+magreport.jobengine.clean-rms-out-folder=false
+
+# Schedule service settings
+magreport.host=
+magreport.scheduleengine.check-last-date-calendar = 0 0 0 1 * *
+magreport.schedule-user=MAG_SCHEDULE_USER
+magreport.schedule-mail-time-send-warning= 0 0 9 * * *
+magreport.schedule-days-send-warning= 10
+
+# Maximum number of hierarchy levels
+# This parameter use for check ring path
+magreport.max-level-hierarchy = 128
+
+# Update user status service
+magreport.update-user-status.enable = true
+magreport.update-user-status.schedule = 0 0 5 * * *
+
+# H2-console white list
+magreport.h2.console.whitelist=

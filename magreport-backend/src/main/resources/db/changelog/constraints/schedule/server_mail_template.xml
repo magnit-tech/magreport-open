@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SERVER_MAIL_TEMPLATE-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SERVER_MAIL_TEMPLATE-SERVER_MAIL_TEMPLATE_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SERVER_MAIL_TEMPLATE_TYPE_ID" baseTableName="SERVER_MAIL_TEMPLATE"
+                                 constraintName="FK-SERVER_MAIL_TEMPLATE-SERVER_MAIL_TEMPLATE_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SERVER_MAIL_TEMPLATE_TYPE_ID"
+                                 referencedTableName="SERVER_MAIL_TEMPLATE_TYPE"/>
+    </changeSet>
+
+    <changeSet id="SERVER_MAIL_TEMPLATE-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SERVER_MAIL_TEMPLATE-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="SERVER_MAIL_TEMPLATE"
+                                 constraintName="FK-SERVER_MAIL_TEMPLATE-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID"
+                                 referencedTableName="USERS"/>
+    </changeSet>
+
+</databaseChangeLog>
