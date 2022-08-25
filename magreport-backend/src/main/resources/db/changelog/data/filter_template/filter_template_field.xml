@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_TEMPLATE_FIELD-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='SINGLE_VALUE_UNBOUNDED'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='ID_FIELD'"/>
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Выходное поле фильтра, мапится к полю отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='SINGLE_VALUE_UNBOUNDED'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='CODE_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Входное поле фильтра, для передачи значений в фильтр"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='RANGE'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='ID_FIELD'"/>
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Выходное поле фильтра, мапится к полю отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='RANGE'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='CODE_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Входное поле фильтра, для передачи значений в фильтр"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='VALUE_LIST_UNBOUNDED'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='ID_FIELD'"/>
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Выходное поле фильтра, мапится к полю отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='VALUE_LIST_UNBOUNDED'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='CODE_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Входное поле фильтра, для передачи значений в фильтр"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='VALUE_LIST'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='ID_FIELD'"/>
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Выходное поле фильтра, мапится к полю отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='VALUE_LIST'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='CODE_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Входное поле фильтра, для передачи значений в фильтр"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='TOKEN_INPUT'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='ID_FIELD'"/>
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Выходное поле фильтра, мапится к полю отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='TOKEN_INPUT'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='CODE_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Входное поле фильтра, для передачи значений в фильтр"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='TOKEN_INPUT'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='NAME_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Поле фильтра, для поиска значений и выдачи подсказок пользователю"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='HIERARCHY'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='ID_FIELD'"/>
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Выходное поле фильтра, мапится к полю отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='HIERARCHY'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='CODE_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Входное поле фильтра, для передачи значений в фильтр"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='HIERARCHY'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='NAME_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Поле фильтра, для поиска значений и выдачи подсказок пользователю"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='HIERARCHY_M2M'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='ID_FIELD'"/>
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Выходное поле фильтра, мапится к полю отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='HIERARCHY_M2M'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='CODE_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Входное поле фильтра, для передачи значений в фильтр"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='HIERARCHY_M2M'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='NAME_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Поле фильтра, для поиска значений и выдачи подсказок пользователю"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='DATE_RANGE'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='ID_FIELD'"/>
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Выходное поле фильтра, мапится к полю отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='DATE_RANGE'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='CODE_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Входное поле фильтра, для передачи значений в фильтр"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='DATE_VALUE'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='ID_FIELD'"/>
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Выходное поле фильтра, мапится к полю отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='DATE_VALUE'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='CODE_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Входное поле фильтра, для передачи значений в фильтр"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

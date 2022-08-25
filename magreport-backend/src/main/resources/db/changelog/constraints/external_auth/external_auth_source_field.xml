@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="EXTERNAL_AUTH_SOURCE_FIELD-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-EXTERNAL_AUTH_SOURCE_FIELD-EXTERNAL_AUTH_SOURCE_FIELD_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="EXTERNAL_AUTH_SOURCE_FIELD_TYPE_ID" baseTableName="EXTERNAL_AUTH_SOURCE_FIELD"
+                                 constraintName="FK-EXTERNAL_AUTH_SOURCE_FIELD-EXTERNAL_AUTH_SOURCE_FIELD_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="EXTERNAL_AUTH_SOURCE_FIELD_TYPE_ID" referencedTableName="EXTERNAL_AUTH_SOURCE_FIELD_TYPE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="EXTERNAL_AUTH_SOURCE_FIELD-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-EXTERNAL_AUTH_SOURCE_FIELD-EXTERNAL_AUTH_SOURCE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="EXTERNAL_AUTH_SOURCE_ID" baseTableName="EXTERNAL_AUTH_SOURCE_FIELD"
+                                 constraintName="FK-EXTERNAL_AUTH_SOURCE_FIELD-EXTERNAL_AUTH_SOURCE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="EXTERNAL_AUTH_SOURCE_ID" referencedTableName="EXTERNAL_AUTH_SOURCE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="EXTERNAL_AUTH_SOURCE_FIELD-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-EXTERNAL_AUTH_SOURCE_FIELD-DATASET_FIELD"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATASET_FIELD_ID" baseTableName="EXTERNAL_AUTH_SOURCE_FIELD"
+                                 constraintName="FK-EXTERNAL_AUTH_SOURCE_FIELD-DATASET_FIELD"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATASET_FIELD_ID" referencedTableName="DATASET_FIELD"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="ROLE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="ROLE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="ROLE">
+            <column name="ROLE_TYPE_ID" valueComputed="SELECT ROLE_TYPE_ID FROM REPOSITORY.ROLE_TYPE WHERE NAME='SYSTEM'"/>
+            <column name="name" value="ADMIN"/>
+            <column name="description" value="Роль Администратор - обладает всей полнотой полномочий"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="ROLE">
+            <column name="ROLE_TYPE_ID" valueComputed="SELECT ROLE_TYPE_ID FROM REPOSITORY.ROLE_TYPE WHERE NAME='SYSTEM'"/>
+            <column name="name" value="DEVELOPER"/>
+            <column name="description" value="Роль Разработчик - обладает правами на создание отчетов, фильтров и т.д."/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="ROLE">
+            <column name="ROLE_TYPE_ID" valueComputed="SELECT ROLE_TYPE_ID FROM REPOSITORY.ROLE_TYPE WHERE NAME='SYSTEM'"/>
+            <column name="name" value="USER"/>
+            <column name="description" value="Роль Пользователь - обладает правами на запуск опубликованных отчетов"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="ROLE">
+            <column name="ROLE_TYPE_ID" valueComputed="SELECT ROLE_TYPE_ID FROM REPOSITORY.ROLE_TYPE WHERE NAME='FOLDER_ROLES'"/>
+            <column name="NAME" value="FOLD_REPOSITORY_DEV"/>
+            <column name="DESCRIPTION" value="Доступ к папке 'Репозиторий'"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="ROLE">
+            <column name="ROLE_TYPE_ID" valueComputed="SELECT ROLE_TYPE_ID FROM REPOSITORY.ROLE_TYPE WHERE NAME='FOLDER_ROLES'"/>
+            <column name="NAME" value="FOLD_REPOSITORY_USER"/>
+            <column name="DESCRIPTION" value="Доступ к папке 'Репозиторий'"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FOLDER_ROLE_PERMISSION-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FOLDER_ROLE_PERMISSION"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FOLDER_ROLE_PERMISSION">
+            <column name="FOLDER_ROLE_ID" value="1"/>
+            <column name="FOLDER_AUTHORITY_ID" value="2"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FOLDER_ROLE_PERMISSION">
+            <column name="FOLDER_ROLE_ID" value="2"/>
+            <column name="FOLDER_AUTHORITY_ID" value="1"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

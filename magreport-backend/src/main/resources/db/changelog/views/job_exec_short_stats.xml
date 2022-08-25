@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="job_exec_short_stats" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <viewExists schemaName="REPOSITORY" viewName="JOB_EXEC_SHORT_STATS"/>
+            </not>
+        </preConditions>
+        <createView schemaName="REPOSITORY" viewName="JOB_EXEC_SHORT_STATS"
+                    fullDefinition="false" replaceIfExists="true">
+            SELECT
+                MIN(CAST(STAT.CREATED AS DATE)) AS DAY_ID,
+                MIN(USERS.NAME) AS USER_LOGIN,
+                STAT.REPORT_JOB_ID,
+                MIN(STAT.REPORT_ID) AS REPORT_ID,
+                MIN(REPORT.NAME) AS REPORT_NAME,
+                MIN(RST.NAME) AS LAST_STATUS,
+                MIN(STAT.CREATED) AS START_TIME,
+                MAX(STAT.CREATED) AS END_TIME,
+                MAX(STAT.ROW_COUNT) AS ROW_COUNT
+            FROM REPOSITORY.REPORT_JOB_STAT_VIEW STAT
+                     INNER JOIN REPOSITORY.USERS USERS ON USERS.USER_ID=STAT.USER_ID
+                INNER JOIN REPOSITORY.REPORT REPORT ON REPORT.REPORT_ID=STAT.REPORT_ID
+                INNER JOIN REPOSITORY.REPORT_JOB_STATUS RST ON RST.REPORT_JOB_STATUS_ID=STAT.LAST_STATUS_ID
+            GROUP BY STAT.REPORT_JOB_ID;
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

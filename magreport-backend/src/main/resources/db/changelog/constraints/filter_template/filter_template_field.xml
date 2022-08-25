@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_TEMPLATE_FIELD-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_TEMPLATE_FIELD-FILTER_TEMPLATE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_TEMPLATE_ID" baseTableName="FILTER_TEMPLATE_FIELD"
+                                 constraintName="FK-FILTER_TEMPLATE_FIELD-FILTER_TEMPLATE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_TEMPLATE_ID" referencedTableName="FILTER_TEMPLATE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="FILTER_TEMPLATE_FIELD-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_TEMPLATE_FIELD-FILTER_FIELD_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_FIELD_TYPE_ID" baseTableName="FILTER_TEMPLATE_FIELD"
+                                 constraintName="FK-FILTER_TEMPLATE_FIELD-FILTER_FIELD_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_FIELD_TYPE_ID" referencedTableName="FILTER_FIELD_TYPE"/>
+    </changeSet>
+
+</databaseChangeLog>

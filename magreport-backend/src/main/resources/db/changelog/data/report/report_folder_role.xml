@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_FOLDER_ROLE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="REPORT_FOLDER_ROLE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FOLDER_ROLE">
+            <column name="REPORT_FOLDER_ID" value="1"/>
+            <column name="ROLE_ID" valueComputed="SELECT ROLE_ID FROM REPOSITORY.ROLE WHERE NAME='FOLD_REPOSITORY_DEV'"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

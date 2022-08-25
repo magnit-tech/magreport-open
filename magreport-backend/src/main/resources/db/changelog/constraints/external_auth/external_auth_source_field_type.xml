@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="EXTERNAL_AUTH_SOURCE_FIELD_TYPE-003">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="EXTERNAL_AUTH_SOURCE_FIELD_TYPE"/>
+        </preConditions>
+
+        <insert schemaName="REPOSITORY" tableName="EXTERNAL_AUTH_SOURCE_FIELD_TYPE">
+            <column name="NAME" value="CHANGE_TYPE_FIELD"/>
+            <column name="DESCRIPTION" value="Поле с информацией о типе изменения (I/D)"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="EXTERNAL_AUTH_SOURCE_FIELD_TYPE">
+            <column name="NAME" value="ROLE_NAME_FIELD"/>
+            <column name="DESCRIPTION" value="Поле с информацией о наименовании роли"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="EXTERNAL_AUTH_SOURCE_FIELD_TYPE">
+            <column name="NAME" value="USER_NAME_FIELD"/>
+            <column name="DESCRIPTION" value="Поле с информацией о наименовании УЗ пользователя"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="EXTERNAL_AUTH_SOURCE_FIELD_TYPE">
+            <column name="NAME" value="FILTER_VALUE_FIELD"/>
+            <column name="DESCRIPTION" value="Поле с информацией о значении для настройки фильтра"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

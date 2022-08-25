@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="REPORT_OLAP_CONFIGURATION-001" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="REPORT_OLAP_CONFIGURATION_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="REPORT_OLAP_CONFIGURATION_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet id="REPORT_OLAP_CONFIGURATION-002" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="REPORT_OLAP_CONFIGURATION"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="REPORT_OLAP_CONFIGURATION">
+            <column name="REPORT_OLAP_CONFIGURATION_ID" type="INT"
+                    defaultValueSequenceNext="REPORT_OLAP_CONFIGURATION_SEQ">
+                <constraints primaryKey="true" primaryKeyName="REPORT_OLAP_CONFIGURATION_PK"/>
+            </column>
+            <column name="REPORT_ID" type="INT"/>
+            <column name="USER_ID" type="INT"/>
+            <column name="REPORT_JOB_ID" type="INT"/>
+            <column name="OLAP_CONFIGURATION_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_DEFAULT" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_SHARED" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_CURRENT" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATOR_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_FOLDER-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="REPORT_FOLDER"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="REPORT_FOLDER">
+            <column name="NAME" value="Репозиторий"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

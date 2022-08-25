@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SERVER_SETTINGS-001" author="artemenko_pa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="SERVER_SETTINGS"/>
+        </preConditions>
+        <insert tableName="SERVER_SETTINGS">
+            <column name="FOLDER_ID" valueComputed="SELECT SERVER_SETTINGS_FOLDER_ID FROM REPOSITORY.SERVER_SETTINGS_FOLDER WHERE CODE='EMAIL_CONFIG'"/>
+            <column name="ORDINAL" valueNumeric="1"/>
+            <column name="CODE" value="emailServerName"/>
+            <column name="NAME" value="Адрес почтового сервера"/>
+            <column name="DESCRIPTION" value="Адрес почтового сервера"/>
+        </insert>
+        <insert tableName="SERVER_SETTINGS">
+            <column name="FOLDER_ID" valueComputed="SELECT SERVER_SETTINGS_FOLDER_ID FROM REPOSITORY.SERVER_SETTINGS_FOLDER WHERE CODE='EMAIL_CONFIG'"/>
+            <column name="ORDINAL" valueNumeric="2"/>
+            <column name="CODE" value="emailServerPort"/>
+            <column name="NAME" value="Порт почтового сервера"/>
+            <column name="DESCRIPTION" value="Порт почтового сервера"/>
+            <column name="VAL" value="25"/>
+        </insert>
+        <insert tableName="SERVER_SETTINGS">
+            <column name="FOLDER_ID" valueComputed="SELECT SERVER_SETTINGS_FOLDER_ID FROM REPOSITORY.SERVER_SETTINGS_FOLDER WHERE CODE='EMAIL_CONFIG'"/>
+            <column name="ORDINAL" valueNumeric="3"/>
+            <column name="CODE" value="emailServerProtocol"/>
+            <column name="NAME" value="Протокол почтового сервера"/>
+            <column name="DESCRIPTION" value="Протокол почтового сервера"/>
+            <column name="VAL" value="smtp"/>
+        </insert>
+        <insert tableName="SERVER_SETTINGS">
+            <column name="FOLDER_ID" valueComputed="SELECT SERVER_SETTINGS_FOLDER_ID FROM REPOSITORY.SERVER_SETTINGS_FOLDER WHERE CODE='EMAIL_CONFIG'"/>
+            <column name="ORDINAL" valueNumeric="4"/>
+            <column name="CODE" value="emailServerLogin"/>
+            <column name="NAME" value="Логин для почтового сервера"/>
+            <column name="DESCRIPTION" value="Логин для почтового сервера"/>
+        </insert>
+        <insert tableName="SERVER_SETTINGS">
+            <column name="FOLDER_ID" valueComputed="SELECT SERVER_SETTINGS_FOLDER_ID FROM REPOSITORY.SERVER_SETTINGS_FOLDER WHERE CODE='EMAIL_CONFIG'"/>
+            <column name="ORDINAL" valueNumeric="5"/>
+            <column name="ENCODED" valueBoolean="true"/>
+            <column name="CODE" value="emailServerPassword"/>
+            <column name="NAME" value="Пароль для почтового сервера"/>
+            <column name="DESCRIPTION" value="Пароль для почтового сервера"/>
+        </insert>
+        <insert tableName="SERVER_SETTINGS">
+            <column name="FOLDER_ID" valueComputed="SELECT SERVER_SETTINGS_FOLDER_ID FROM REPOSITORY.SERVER_SETTINGS_FOLDER WHERE CODE='EMAIL_CONFIG'"/>
+            <column name="ORDINAL" valueNumeric="6"/>
+            <column name="CODE" value="emailServerAddressFrom"/>
+            <column name="NAME" value="Почтовый адрес с которого будут отправляться сообщения"/>
+            <column name="DESCRIPTION" value="Почтовый адрес с которого будут отправляться сообщения"/>
+        </insert>
+        <insert tableName="SERVER_SETTINGS" schemaName="REPOSITORY" >
+            <column name="FOLDER_ID" valueComputed="SELECT SERVER_SETTINGS_FOLDER_ID FROM REPOSITORY.SERVER_SETTINGS_FOLDER WHERE CODE='EMAIL_CONFIG'"/>
+            <column name="ORDINAL" value="7"/>
+            <column name="CODE" value="permittedDomains"/>
+            <column name="ENCODED" value="false"/>
+            <column name="NAME" value="Список доменов"/>
+            <column name="DESCRIPTION" value="Список доменов на которые доступна отправка почты"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

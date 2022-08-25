@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="DATASOURCE-001">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="DATASOURCE_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="DATASOURCE_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="DATASOURCE-002">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="DATASOURCE"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="DATASOURCE">
+            <column name="DATASOURCE_ID" type="INT" defaultValueSequenceNext="DATASOURCE_SEQ">
+                <constraints primaryKey="true" primaryKeyName="DATASOURCE_PK"/>
+            </column>
+            <column name="DATASOURCE_TYPE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATASOURCE_FOLDER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="JDBC_URL" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PASSWORD" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="POOL_SIZE" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="USER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

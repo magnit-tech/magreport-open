@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_FIELD-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_FIELD-REPORT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_ID" baseTableName="REPORT_FIELD"
+                                 constraintName="FK-REPORT_FIELD-REPORT"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_ID" referencedTableName="REPORT"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_FIELD-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_FIELD-PIVOT_FIELD_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="PIVOT_FIELD_TYPE_ID" baseTableName="REPORT_FIELD"
+                                 constraintName="FK-REPORT_FIELD-PIVOT_FIELD_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="PIVOT_FIELD_TYPE_ID" referencedTableName="PIVOT_FIELD_TYPE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_FIELD-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_FIELD-DATASET_FIELD"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DATASET_FIELD_ID" baseTableName="REPORT_FIELD"
+                                 constraintName="FK-REPORT_FIELD-DATASET_FIELD"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATASET_FIELD_ID" referencedTableName="DATASET_FIELD"/>
+    </changeSet>
+
+</databaseChangeLog>

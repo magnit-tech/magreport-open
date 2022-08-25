@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB-REPORT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_ID" baseTableName="REPORT_JOB"
+                                 constraintName="FK-REPORT_JOB-REPORT"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_ID" referencedTableName="REPORT"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="REPORT_JOB"
+                                 constraintName="FK-REPORT_JOB-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="USERS"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB-REPORT_JOB_STATUS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_JOB_STATUS_ID" baseTableName="REPORT_JOB"
+                                 constraintName="FK-REPORT_JOB-REPORT_JOB_STATUS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_JOB_STATUS_ID" referencedTableName="REPORT_JOB_STATUS"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_JOB-004">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB-REPORT_JOB_STATE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_JOB_STATE_ID" baseTableName="REPORT_JOB"
+                                 constraintName="FK-REPORT_JOB-REPORT_JOB_STATE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_JOB_STATE_ID" referencedTableName="REPORT_JOB_STATE"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="FILTER_REPORT_FIELD-001" author="artemenko_pa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="4"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="4"/>
+            <column name="REPORT_FIELD_ID" value="5"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value="Маппинг поля REPORT_ID экземпляра фильтра в поле отчета"/>
+            <column name="ORDINAL" value="1"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="4"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="5"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value="REPORT_ID"/>
+            <column name="ORDINAL" value="2"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="5"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="6"/>
+            <column name="REPORT_FIELD_ID" value="5"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value="Маппинг поля REPORT_ID экземпляра фильтра в поле отчета"/>
+            <column name="ORDINAL" value="1"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="5"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="7"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value="REPORT_ID"/>
+            <column name="ORDINAL" value="2"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="5"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="8"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="ORDINAL" value="3"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="1"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="12"/>
+            <column name="REPORT_FIELD_ID" value="1"/>
+            <column name="NAME" value="DAY_ID"/>
+            <column name="DESCRIPTION" value="Маппинг поля DAY_ID экземпляра фильтра в поле отчета"/>
+            <column name="ORDINAL" value="1"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="1"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="14"/>
+            <column name="REPORT_FIELD_ID" value="1"/>
+            <column name="NAME" value="DAY_ID"/>
+            <column name="DESCRIPTION" value="Маппинг поля DAY_ID экземпляра фильтра в поле отчета"/>
+            <column name="ORDINAL" value="2"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="1"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="13"/>
+            <column name="NAME" value="Дата с:"/>
+            <column name="DESCRIPTION" value="Дата с:"/>
+            <column name="ORDINAL" value="3"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="1"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="15"/>
+            <column name="NAME" value="Дата по:"/>
+            <column name="DESCRIPTION" value="Дата по:"/>
+            <column name="ORDINAL" value="4"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="2"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="1"/>
+            <column name="REPORT_FIELD_ID" value="3"/>
+            <column name="NAME" value="USER_NAME"/>
+            <column name="DESCRIPTION" value="Маппинг поля USER_NAME экземпляра фильтра в поле отчета"/>
+            <column name="ORDINAL" value="1"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="2"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="2"/>
+            <column name="NAME" value="USER_NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="ORDINAL" value="2"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="2"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="3"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="ORDINAL" value="3"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="3"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="9"/>
+            <column name="REPORT_FIELD_ID" value="12"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value="Маппинг поля NAME экземпляра фильтра в поле отчета"/>
+            <column name="ORDINAL" value="1"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="3"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="10"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="ORDINAL" value="2"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_FIELD">
+            <column name="FILTER_REPORT_ID" value="3"/>
+            <column name="FILTER_INSTANCE_FIELD_ID" value="11"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="ORDINAL" value="3"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

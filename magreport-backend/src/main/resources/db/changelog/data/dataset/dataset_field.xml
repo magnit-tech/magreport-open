@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="DATASET_FIELD-001" author="artemenko_pa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="DATASET_FIELD"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="1"/>
+            <column name="DATA_TYPE_ID" value="0"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="USER_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="1"/>
+            <column name="DATA_TYPE_ID" value="0"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="USER_STATUS_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="1"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="1"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="FIRST_NAME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="1"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="PATRONYMIC"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="1"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="LAST_NAME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="1"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="EMAIL"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="1"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="DESCRIPTION"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="1"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="CREATED"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="1"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="MODIFIED"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="2"/>
+            <column name="DATA_TYPE_ID" value="0"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="2"/>
+            <column name="DATA_TYPE_ID" value="0"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="REPORT_FOLDER_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="2"/>
+            <column name="DATA_TYPE_ID" value="0"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="DATASET_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="2"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="2"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="DESCRIPTION"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="2"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="REQUIREMENTS_URL"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="2"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="CREATED"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="2"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="MODIFIED"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="3"/>
+            <column name="DATA_TYPE_ID" value="0"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="REPORT_JOB_STATUS_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="3"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="3"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="DESCRIPTION"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="3"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="CREATED"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="3"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="MODIFIED"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="0"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="REPORT_JOB_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="DAY_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="USER_NAME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="FIO"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="0"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="REPORT_NAME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="QUEUING_TIME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="START_TIME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="DATA_TIME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="FINISH_TIME"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="0"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="ROW_COUNT"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="1"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="FINAL_STATUS"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="YEAR_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="MONTH_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="YEAR_MONTH"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="WEEK_ID"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_FIELD">
+            <column name="DATASET_ID" valueComputed="4"/>
+            <column name="DATA_TYPE_ID" value="4"/>
+            <column name="IS_SYNC" valueBoolean="true"/>
+            <column name="NAME" value="YEAR_WEEK"/>
+            <column name="DESCRIPTION" value=""/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

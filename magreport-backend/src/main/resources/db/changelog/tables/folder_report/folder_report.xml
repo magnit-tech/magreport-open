@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FOLDER_REPORT-001">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="FOLDER_REPORT_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="FOLDER_REPORT_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="FOLDER_REPORT-002">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="FOLDER_REPORT"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="FOLDER_REPORT">
+            <column name="FOLDER_REPORT_ID" type="INT" defaultValueSequenceNext="FOLDER_REPORT_SEQ">
+                <constraints primaryKey="true" primaryKeyName="FOLDER_REPORT_PK"/>
+            </column>
+            <column name="FOLDER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REPORT_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

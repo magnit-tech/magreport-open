@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <include file="classpath:/db/changelog/data/report/pivot_field_type.xml"/>
+    <include file="classpath:/db/changelog/data/report/report_folder.xml"/>
+    <include file="classpath:/db/changelog/data/report/report.xml"/>
+    <include file="classpath:/db/changelog/data/report/report_field.xml"/>
+    <include file="classpath:/db/changelog/data/report/folder.xml"/>
+    <include file="classpath:/db/changelog/data/report/folder_report.xml"/>
+    <include file="classpath:/db/changelog/data/report/folder_role.xml"/>
+    <include file="classpath:/db/changelog/data/report/folder_role_permission.xml"/>
+    <include file="classpath:/db/changelog/data/report/report_folder_role.xml"/>
+    <include file="classpath:/db/changelog/data/report/report_folder_role_permission.xml"/>
+
+</databaseChangeLog>

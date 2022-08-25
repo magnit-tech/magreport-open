@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="REPORT"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="REPORT">
+            <column name="REPORT_FOLDER_ID" value="1"/>
+            <column name="DATASET_ID" value="4"/>
+            <column name="NAME" value="Статистика запуска отчётов пользователями"/>
+            <column name="DESCRIPTION" value="Статистика отчётов пользователей"/>
+            <column name="REQUIREMENTS_URL" value=""/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

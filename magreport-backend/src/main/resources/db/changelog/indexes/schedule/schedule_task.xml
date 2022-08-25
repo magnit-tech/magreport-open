@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SCHEDULE_TASK-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <indexExists schemaName="REPOSITORY" tableName="SCHEDULE_TASK" indexName="FOLDER_ROLE_UNIQUE_INDEX"/>
+            </not>
+        </preConditions>
+        <createIndex schemaName="REPOSITORY" tableName="SCHEDULE_TASK" indexName="SCHEDULE_TASK_UNIQUE_INDEX" unique="true">
+            <column name="CODE" descending="false"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

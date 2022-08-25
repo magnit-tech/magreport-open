@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="REPORT_EXCEL_TEMPLATE-001" author="vyushin_aa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="REPORT_EXCEL_TEMPLATE"/>
+        </preConditions>
+
+        <insert schemaName="REPOSITORY" tableName="REPORT_EXCEL_TEMPLATE">
+            <column name="EXCEL_TEMPLATE_ID" value="1"/>
+            <column name="REPORT_ID" value="1"/>
+            <column name="IS_DEFAULT" value="false"/>
+        </insert>
+
+        <insert tableName="REPORT_EXCEL_TEMPLATE">
+            <column name="EXCEL_TEMPLATE_ID" value="2"/>
+            <column name="REPORT_ID" value="1"/>
+            <column name="IS_DEFAULT" value="true"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

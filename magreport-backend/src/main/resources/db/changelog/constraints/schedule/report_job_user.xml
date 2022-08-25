@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="REPORT_JOB_USER-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB_USER-REPORT_JOB"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_JOB_ID" baseTableName="REPORT_JOB_USER"
+                                 constraintName="FK-REPORT_JOB_USER-REPORT_JOB"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_JOB_ID"
+                                 referencedTableName="REPORT_JOB"/>
+    </changeSet>
+
+    <changeSet id="REPORT_JOB_USER-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB_USER-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="REPORT_JOB_USER"
+                                 constraintName="FK-REPORT_JOB_USER-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID"
+                                 referencedTableName="USERS"/>
+    </changeSet>
+
+    <changeSet id="REPORT_JOB_USER-003" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_JOB_USER-REPORT_JOB_USER_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_JOB_USER_TYPE_ID" baseTableName="REPORT_JOB_USER"
+                                 constraintName="FK-REPORT_JOB_USER-REPORT_JOB_USER_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_JOB_USER_TYPE_ID"
+                                 referencedTableName="REPORT_JOB_USER_TYPE"/>
+    </changeSet>
+
+</databaseChangeLog>

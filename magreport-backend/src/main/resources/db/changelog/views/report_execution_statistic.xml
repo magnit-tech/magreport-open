@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_EXECUTION_STATISTIC">
+        <preConditions>
+            <not>
+                <viewExists schemaName="REPOSITORY" viewName="REPORT_EXECUTION_STATISTIC"/>
+            </not>
+        </preConditions>
+        <createView schemaName="REPOSITORY" viewName="REPORT_EXECUTION_STATISTIC"
+                    fullDefinition="false" replaceIfExists="true">
+            SELECT RJS.REPORT_JOB_ID,
+                   FORMATDATETIME(MAX(CASE RJS.REPORT_JOB_STATUS_ID WHEN 0 THEN RJS.CREATED END),
+                                  'yyyy-MM-dd')                                                              as DAY_ID,
+                   MAX(U.NAME)                                                                               AS USER_NAME,
+                   MAX(U.LAST_NAME || ' ' || U.FIRST_NAME || ' ' || U.PATRONYMIC)                            AS FIO,
+                   RJS.REPORT_ID,
+                   MAX(R.NAME)                                                                               AS REPORT_NAME,
+                   MAX(CASE RJS.REPORT_JOB_STATUS_ID WHEN 0 THEN RJS.CREATED END)                            AS QUEUING_TIME,
+                   MAX(CASE RJS.REPORT_JOB_STATUS_ID WHEN 1 THEN RJS.CREATED END)                            AS START_TIME,
+                   MAX(CASE RJS.REPORT_JOB_STATUS_ID WHEN 2 THEN RJS.CREATED END)                            AS DATA_TIME,
+                   MAX(CASE WHEN RJS.REPORT_JOB_STATUS_ID IN (2, 3, 5) THEN RJS.CREATED END)                 AS FINISH_TIME,
+                   MAX(RJS.ROW_COUNT)                                                                        AS ROW_COUNT,
+                   MAX(LST.NAME)                                                                             AS FINAL_STATUS,
+                   FORMATDATETIME(MAX(CASE RJS.REPORT_JOB_STATUS_ID WHEN 0 THEN RJS.CREATED END), 'yyyy')    as YEAR_ID,
+                   FORMATDATETIME(MAX(CASE RJS.REPORT_JOB_STATUS_ID WHEN 0 THEN RJS.CREATED END),
+                                  'MM')                                                                      as MONTH_ID,
+                   FORMATDATETIME(MAX(CASE RJS.REPORT_JOB_STATUS_ID WHEN 0 THEN RJS.CREATED END),
+                                  'yyyy-MM')                                                                 as YEAR_MONTH,
+                   FORMATDATETIME(MAX(CASE RJS.REPORT_JOB_STATUS_ID WHEN 0 THEN RJS.CREATED END), 'ww')      as WEEK_ID,
+                   FORMATDATETIME(MAX(CASE RJS.REPORT_JOB_STATUS_ID WHEN 0 THEN RJS.CREATED END),
+                                  'yyyy-ww')                                                                 as YEAR_WEEK
+            FROM REPOSITORY.REPORT_JOB_STAT_VIEW RJS
+                     INNER JOIN REPOSITORY.REPORT R
+                                ON R.REPORT_ID = RJS.REPORT_ID
+                     INNER JOIN REPOSITORY.USERS U ON U.USER_ID = RJS.USER_ID
+                     INNER JOIN REPOSITORY.REPORT_JOB_STATUS LST ON LST.REPORT_JOB_STATUS_ID = RJS.LAST_STATUS_ID
+            GROUP BY RJS.REPORT_JOB_ID, RJS.REPORT_ID;
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

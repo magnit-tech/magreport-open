@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="ROLE_DOMAIN_GROUP-001">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="ROLE_DOMAIN_GROUP_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="ROLE_DOMAIN_GROUP_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+
+    <changeSet author="artemenko_pa" id="ROLE_DOMAIN_GROUP-002">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="ROLE_DOMAIN_GROUP"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="ROLE_DOMAIN_GROUP">
+            <column name="ROLE_DOMAIN_GROUP_ID" type="INT" defaultValueSequenceNext="ROLE_DOMAIN_GROUP_SEQ">
+                <constraints primaryKey="true" primaryKeyName="ROLE_DOMAIN_GROUP_PK"/>
+            </column>
+            <column name="ROLE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DOMAIN_GROUP_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

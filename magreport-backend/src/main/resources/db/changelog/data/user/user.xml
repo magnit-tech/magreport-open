@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="add-maintenance-user-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="USERS"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="USERS">
+            <column name="USER_STATUS_ID" value="0"/>
+            <column name="NAME" value="MAGREPORT-INIT"/>
+            <column name="FIRST_NAME" value=""/>
+            <column name="PATRONYMIC" value=""/>
+            <column name="LAST_NAME" value=""/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

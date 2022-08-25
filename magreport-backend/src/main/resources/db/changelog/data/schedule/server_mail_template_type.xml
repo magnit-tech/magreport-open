@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="server-mail-text-template-003" author="vyushin_aa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="SERVER_MAIL_TEMPLATE_TYPE">
+            <column name="NAME" value="SCHEDULE"/>
+            <column name="DESCRIPTION" value="Шаблоны сообщений для сервиса расписаний"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

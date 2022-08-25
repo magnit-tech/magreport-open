@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="DATASET_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="DATASET_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="DATASET_TYPE">
+            <column name="NAME" value="TABLE"/>
+            <column name="DESCRIPTION" value="Таблица"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="DATASET_TYPE">
+            <column name="NAME" value="PROCEDURE"/>
+            <column name="DESCRIPTION" value="Процедура"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

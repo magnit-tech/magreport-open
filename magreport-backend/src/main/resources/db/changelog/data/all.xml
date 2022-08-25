@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <include file="classpath:/db/changelog/data/user/all.xml"/>
+    <include file="classpath:/db/changelog/data/datasource/all.xml"/>
+    <include file="classpath:/db/changelog/data/folder-report/all.xml"/>
+    <include file="classpath:/db/changelog/data/dataset/all.xml"/>
+    <include file="classpath:/db/changelog/data/filter_template/all.xml"/>
+    <include file="classpath:/db/changelog/data/filter_instance/all.xml"/>
+    <include file="classpath:/db/changelog/data/report/all.xml"/>
+    <include file="classpath:/db/changelog/data/filter_report/all.xml"/>
+    <include file="classpath:/db/changelog/data/report_job/all.xml"/>
+    <include file="classpath:/db/changelog/data/external_auth/all.xml"/>
+    <include file="classpath:/db/changelog/data/server_settings/all.xml"/>
+    <include file="classpath:/db/changelog/data/excel_template/all.xml"/>
+    <include file="classpath:/db/changelog/data/schedule/all.xml"/>
+    <include file="classpath:/db/changelog/data/themes/all.xml"/>
+
+</databaseChangeLog>

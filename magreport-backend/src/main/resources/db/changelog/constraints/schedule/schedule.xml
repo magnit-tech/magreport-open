@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="SCHEDULE-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SCHEDULE-SCHEDULE_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SCHEDULE_TYPE_ID" baseTableName="SCHEDULE"
+                                 constraintName="FK-SCHEDULE-SCHEDULE_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SCHEDULE_TYPE_ID"
+                                 referencedTableName="SCHEDULE_TYPE"/>
+    </changeSet>
+
+    <changeSet id="SCHEDULE-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SCHEDULE-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableSchemaName="REPOSITORY" baseTableName="SCHEDULE"
+                                 constraintName="FK-SCHEDULE-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID"
+                                 referencedTableName="USERS"/>
+    </changeSet>
+
+</databaseChangeLog>

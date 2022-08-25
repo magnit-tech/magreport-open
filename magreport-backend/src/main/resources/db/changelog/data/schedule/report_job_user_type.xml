@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="REPORT_JOB_USER_TYPE-001" author="vyushin_aa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="REPORT_JOB_USER_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="REPORT_JOB_USER_TYPE">
+            <column name="NAME" value="SCHEDULE"/>
+            <column name="DESCRIPTION" value="Для записей, связанных с отправкой пользователям отчетов по расписанию"/>
+            <column name="USER_ID" value="0"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="REPORT_JOB_USER_TYPE">
+            <column name="NAME" value="SHARE"/>
+            <column name="DESCRIPTION" value="Для записей, связанных с расшариванием пользователями кубов"/>
+            <column name="USER_ID" value="0"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

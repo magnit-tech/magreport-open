@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_FOLDER_ROLE_PERMISSION-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_FOLDER_ROLE_PERMISSION-REPORT_FOLDER_ROLE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_FOLDER_ROLE_ID" baseTableName="REPORT_FOLDER_ROLE_PERMISSION"
+                                 constraintName="FK-REPORT_FOLDER_ROLE_PERMISSION-REPORT_FOLDER_ROLE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_FOLDER_ROLE_ID" referencedTableName="REPORT_FOLDER_ROLE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_FOLDER_ROLE_PERMISSION-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-REPORT_FOLDER_ROLE_PERMISSION-FOLDER_AUTHORITY"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FOLDER_AUTHORITY_ID" baseTableName="REPORT_FOLDER_ROLE_PERMISSION"
+                                 constraintName="FK-REPORT_FOLDER_ROLE_PERMISSION-FOLDER_AUTHORITY"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FOLDER_AUTHORITY_ID" referencedTableName="FOLDER_AUTHORITY"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="FILTER_INSTANCE_FIELD-001" author="artemenko_pa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="1"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="9"/>
+            <column name="DATASET_FIELD_ID" value="3"/>
+            <column name="NAME" value="USER_NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="1"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="10"/>
+            <column name="DATASET_FIELD_ID" value="3"/>
+            <column name="NAME" value="USER_NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="1"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="11"/>
+            <column name="DATASET_FIELD_ID" value="3"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="2"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="7"/>
+            <column name="DATASET_FIELD_ID" value="11"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value="REPORT_ID"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="2"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="8"/>
+            <column name="DATASET_FIELD_ID" value="11"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value="REPORT_ID"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="3"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="9"/>
+            <column name="DATASET_FIELD_ID" value="11"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value="REPORT_ID"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="3"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="10"/>
+            <column name="DATASET_FIELD_ID" value="11"/>
+            <column name="NAME" value="REPORT_ID"/>
+            <column name="DESCRIPTION" value="REPORT_ID"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="3"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="11"/>
+            <column name="DATASET_FIELD_ID" value="14"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="4"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="12"/>
+            <column name="DATASET_FIELD_ID" value="28"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="4"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="13"/>
+            <column name="DATASET_FIELD_ID" value="28"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="4"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="14"/>
+            <column name="DATASET_FIELD_ID" value="28"/>
+            <column name="NAME" value="NAME"/>
+            <column name="DESCRIPTION" value="NAME"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="5"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="18"/>
+            <column name="NAME" value="DAY_ID"/>
+            <column name="DESCRIPTION" value="Дата"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="1"/>
+            <column name="FILTER_INSTANCE_ID" value="5"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="19"/>
+            <column name="NAME" value="Дата с:"/>
+            <column name="DESCRIPTION" value="Дата с:"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="2"/>
+            <column name="FILTER_INSTANCE_ID" value="5"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="18"/>
+            <column name="NAME" value="DAY_ID"/>
+            <column name="DESCRIPTION" value="Дата"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_INSTANCE_FIELD">
+            <column name="LEVEL" value="2"/>
+            <column name="FILTER_INSTANCE_ID" value="5"/>
+            <column name="FILTER_TEMPLATE_FIELD_ID" value="19"/>
+            <column name="NAME" value="Дата по:"/>
+            <column name="DESCRIPTION" value="Дата по:"/>
+            <column name="EXPAND" value="false"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER-FILTER_INSTANCE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_INSTANCE_ID" baseTableName="SECURITY_FILTER"
+                                 constraintName="FK-SECURITY_FILTER-FILTER_INSTANCE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_INSTANCE_ID" referencedTableName="FILTER_INSTANCE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER-FILTER_OPERATION_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_OPERATION_TYPE_ID" baseTableName="SECURITY_FILTER"
+                                 constraintName="FK-SECURITY_FILTER-FILTER_OPERATION_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_OPERATION_TYPE_ID" referencedTableName="FILTER_OPERATION_TYPE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER-SECURITY_FILTER_FOLDER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SECURITY_FILTER_FOLDER_ID" baseTableName="SECURITY_FILTER"
+                                 constraintName="FK-SECURITY_FILTER-SECURITY_FILTER_FOLDER"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SECURITY_FILTER_FOLDER_ID" referencedTableName="SECURITY_FILTER_FOLDER"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER-004">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="SECURITY_FILTER"
+                                 constraintName="FK-SECURITY_FILTER-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="USERS"/>
+
+    </changeSet>
+
+</databaseChangeLog>

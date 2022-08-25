@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="EXTERNAL_AUTH_SECURITY_FILTER-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-EXTERNAL_AUTH_SECURITY_FILTER-EXTERNAL_AUTH_SOURCE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="EXTERNAL_AUTH_SOURCE_ID" baseTableName="EXTERNAL_AUTH_SECURITY_FILTER"
+                                 constraintName="FK-EXTERNAL_AUTH_SECURITY_FILTER-EXTERNAL_AUTH_SOURCE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="EXTERNAL_AUTH_SOURCE_ID" referencedTableName="EXTERNAL_AUTH_SOURCE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="EXTERNAL_AUTH_SECURITY_FILTER-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-EXTERNAL_AUTH_SECURITY_FILTER-SECURITY_FILTER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SECURITY_FILTER_ID" baseTableName="EXTERNAL_AUTH_SECURITY_FILTER"
+                                 constraintName="FK-EXTERNAL_AUTH_SECURITY_FILTER-SECURITY_FILTER"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SECURITY_FILTER_ID" referencedTableName="SECURITY_FILTER"/>
+    </changeSet>
+
+</databaseChangeLog>

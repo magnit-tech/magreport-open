@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="EXTERNAL_AUTH_SOURCE_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="EXTERNAL_AUTH_SOURCE_TYPE"/>
+        </preConditions>
+
+        <insert tableName="EXTERNAL_AUTH_SOURCE_TYPE">
+            <column name="NAME" value="GROUP_SOURCE"/>
+            <column name="DESCRIPTION" value="Источник групп доступа AMS"/>
+        </insert>
+
+        <insert tableName="EXTERNAL_AUTH_SOURCE_TYPE">
+            <column name="NAME" value="USER_MAP_SOURCE"/>
+            <column name="DESCRIPTION" value="Источник маппинга пользователей к ролям AMS"/>
+        </insert>
+
+        <insert tableName="EXTERNAL_AUTH_SOURCE_TYPE">
+            <column name="NAME" value="PERMISSION_SOURCE"/>
+            <column name="DESCRIPTION" value="Источник настроек прав доступа ролей AMS"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="vyushin_aa" id="THEME-001">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="THEME_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="THEME_SEQ" startValue="0"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="vyushin_aa" id="THEME-002">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="THEME"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="THEME">
+            <column name="THEME_ID" type="INT" defaultValueSequenceNext="THEME_SEQ">
+                <constraints primaryKey="true" primaryKeyName="THEME_PK" />
+            </column>
+            <column name="THEME_TYPE_ID" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="USER_ID" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="FAVORITE" type="BOOLEAN"/>
+            <column name="NAME" type="VARCHAR(255)" />
+            <column name="DESCRIPTION" type="VARCHAR(255)" />
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATA" type="CLOB" >
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

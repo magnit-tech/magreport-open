@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER_ROLE-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER_ROLE-SECURITY_FILTER"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SECURITY_FILTER_ID" baseTableName="SECURITY_FILTER_ROLE"
+                                 constraintName="FK-SECURITY_FILTER_ROLE-SECURITY_FILTER"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SECURITY_FILTER_ID" referencedTableName="SECURITY_FILTER"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="SECURITY_FILTER_ROLE-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-SECURITY_FILTER_ROLE-ROLE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="SECURITY_FILTER_ROLE"
+                                 constraintName="FK-SECURITY_FILTER_ROLE-ROLE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ROLE_ID" referencedTableName="ROLE"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="REPORT_FOLDER_ROLE_PERMISSION-001">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="REPORT_FOLDER_ROLE_PERMISSION_SEQ"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="REPOSITORY" sequenceName="REPORT_FOLDER_ROLE_PERMISSION_SEQ"/>
+        <modifySql>
+            <append value=" NOCACHE"/>
+        </modifySql>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="REPORT_FOLDER_ROLE_PERMISSION-002">
+        <preConditions>
+            <not>
+                <tableExists schemaName="REPOSITORY" tableName="REPORT_FOLDER_ROLE_PERMISSION"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="REPOSITORY" tableName="REPORT_FOLDER_ROLE_PERMISSION">
+            <column name="REPORT_FOLDER_ROLE_PERMISSION_ID" type="INT" defaultValueSequenceNext="REPORT_FOLDER_ROLE_PERMISSION_SEQ">
+                <constraints primaryKey="true" primaryKeyName="REPORT_FOLDER_ROLE_PERMISSION_PK"/>
+            </column>
+            <column name="REPORT_FOLDER_ROLE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FOLDER_AUTHORITY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

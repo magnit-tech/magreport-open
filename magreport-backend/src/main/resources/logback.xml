@@ -1,0 +1,58 @@
+<configuration debug = "false">
+
+    <property name="LOG_DIR" value="${user.home}/magreport2.0/"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-30(%d{yyyy-MM-dd HH:mm:ss.SSS} %green([%26.26thread])) %highlight(%-5level) %cyan(%logger{36}) - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="MAIN_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/magreport.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/magreport.%d{yyyy-MM-dd}_%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>50MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}[%26.26thread] %-5level%logger{36} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="OLAP_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/olap-requests.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/olap-requests.%d{yyyy-MM-dd}_%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>50MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <append>true</append>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="ru.magnit.magreportbackend" level="debug"/>
+    <logger name="com.zaxxer.hikari" level="warn"/>
+
+    <logger name="ru.magnit.magreportbackend.olap_user_request_logger" level="debug" additivity="false">
+        <appender-ref ref="OLAP_LOG_FILE"/>
+    </logger>
+
+    <logger name="exception_logger" level="error" />
+
+
+
+    <root level="warn">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="MAIN_LOG_FILE"/>
+    </root>
+
+</configuration>

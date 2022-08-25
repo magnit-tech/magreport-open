@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="DESTINATION_EMAIL-001" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DESTINATION_EMAIL-SCHEDULE_TASK"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="SCHEDULE_TASK_ID" baseTableName="DESTINATION_EMAIL"
+                                 constraintName="FK-DESTINATION_EMAIL-SCHEDULE_TASK"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="SCHEDULE_TASK_ID"
+                                 referencedTableName="SCHEDULE_TASK"/>
+    </changeSet>
+
+    <changeSet id="DESTINATION_EMAIL-002" author="vyushin_aa">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-DESTINATION_EMAIL-DESTINATION_TYPE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="DESTINATION_TYPE_ID" baseTableName="DESTINATION_EMAIL"
+                                 constraintName="FK-DESTINATION_EMAIL-DESTINATION_TYPE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DESTINATION_TYPE_ID"
+                                 referencedTableName="DESTINATION_TYPE"/>
+    </changeSet>
+
+</databaseChangeLog>

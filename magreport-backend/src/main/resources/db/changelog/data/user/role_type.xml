@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="ROLE_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="ROLE_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="ROLE_TYPE">
+            <column name="name" value="SYSTEM"/>
+            <column name="description" value="Системная роль для раграничения доступа к сервисам"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="ROLE_TYPE">
+            <column name="name" value="SECURITY_FILTER"/>
+            <column name="description" value="Роль для фильтра безопасности"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="ROLE_TYPE">
+            <column name="name" value="FOLDER_ROLES"/>
+            <column name="description" value="Роли для разграничения доступа к каталогам"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_REPORT-FILTER_REPORT_GROUP"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_REPORT_GROUP_ID" baseTableName="FILTER_REPORT"
+                                 constraintName="FK-FILTER_REPORT-FILTER_REPORT_GROUP"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_REPORT_GROUP_ID" referencedTableName="FILTER_REPORT_GROUP"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_REPORT-FILTER_INSTANCE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="FILTER_INSTANCE_ID" baseTableName="FILTER_REPORT"
+                                 constraintName="FK-FILTER_REPORT-FILTER_INSTANCE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="FILTER_INSTANCE_ID" referencedTableName="FILTER_INSTANCE"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="FILTER_REPORT-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-FILTER_REPORT-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="FILTER_REPORT"
+                                 constraintName="FK-FILTER_REPORT-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="USERS"/>
+
+    </changeSet>
+
+</databaseChangeLog>

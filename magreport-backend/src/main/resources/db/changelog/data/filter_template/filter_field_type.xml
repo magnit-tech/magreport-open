@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_FIELD_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_FIELD_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_FIELD_TYPE">
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Идентификатор"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_FIELD_TYPE">
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Бизнес-ключ"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_FIELD_TYPE">
+            <column name="NAME" value="NAME_FIELD"/>
+            <column name="DESCRIPTION" value="Наименование"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

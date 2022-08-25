@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_TYPE-001">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_TYPE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TYPE">
+            <column name="NAME" value="SINGLE_VALUE_UNBOUNDED"/>
+            <column name="DESCRIPTION" value="Одиночное значение без привязки к справочнику"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TYPE">
+            <column name="NAME" value="RANGE"/>
+            <column name="DESCRIPTION" value="Диапазон без привязки к справочнику"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TYPE">
+            <column name="NAME" value="VALUE_LIST_UNBOUNDED"/>
+            <column name="DESCRIPTION" value="Список значений без привязки к справочнику"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TYPE">
+            <column name="NAME" value="VALUE_LIST"/>
+            <column name="DESCRIPTION" value="Список значений с привязкой к справочнику (без подсказок)"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TYPE">
+            <column name="NAME" value="TOKEN_INPUT"/>
+            <column name="DESCRIPTION" value="Список значений с привязкой к справочнику (с подсказками)"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TYPE">
+            <column name="NAME" value="HIERARCHY"/>
+            <column name="DESCRIPTION" value="Строгая иерархия"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TYPE">
+            <column name="NAME" value="HIERARCHY_M2M"/>
+            <column name="DESCRIPTION" value="Нестрогая иерархия"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TYPE">
+            <column name="NAME" value="DATE_RANGE"/>
+            <column name="DESCRIPTION" value="Диапазон дат без привязки к справочнику"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TYPE">
+            <column name="NAME" value="DATE_VALUE"/>
+            <column name="DESCRIPTION" value="Фильтр с одной датой"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

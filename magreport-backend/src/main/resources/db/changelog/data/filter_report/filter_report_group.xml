@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="FILTER_REPORT_GROUP-001" author="artemenko_pa">
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="FILTER_REPORT_GROUP"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_GROUP">
+            <column name="REPORT_ID" value="1"/>
+            <column name="REPORT_FILTER_GROUP_OPERATION_TYPE_ID" value="0"/>
+            <column name="LINKED_FILTERS" value="false"/>
+            <column name="NAME" value="Фильтры к отчету"/>
+            <column name="DESCRIPTION" value="Фильтры к отчету"/>
+            <column name="ORDINAL" value="0"/>
+            <column name="CODE" value=""/>
+            <column name="MANDATORY" value="false"/>
+        </insert>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_REPORT_GROUP">
+            <column name="PARENT_ID" value="1" />
+            <column name="REPORT_ID" value="1"/>
+            <column name="REPORT_FILTER_GROUP_OPERATION_TYPE_ID" value="0"/>
+            <column name="LINKED_FILTERS" value="false"/>
+            <column name="NAME" value="Группа поиска отчётов"/>
+            <column name="DESCRIPTION" value="Группа поиска отчётов"/>
+            <column name="ORDINAL" value="4"/>
+            <column name="CODE" value=""/>
+            <column name="MANDATORY" value="false"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

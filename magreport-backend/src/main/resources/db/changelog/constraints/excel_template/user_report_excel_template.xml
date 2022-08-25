@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="USER_REPORT_EXCEL_TEMPLATE-001">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-USER_REPORT_EXCEL_TEMPLATE-USERS"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="USER_REPORT_EXCEL_TEMPLATE"
+                                 constraintName="FK-USER_REPORT_EXCEL_TEMPLATE-USERS"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="USERS"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="USER_REPORT_EXCEL_TEMPLATE-002">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-USER_REPORT_EXCEL_TEMPLATE-REPORT"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_ID" baseTableName="USER_REPORT_EXCEL_TEMPLATE"
+                                 constraintName="FK-USER_REPORT_EXCEL_TEMPLATE-REPORT"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_ID" referencedTableName="REPORT"/>
+    </changeSet>
+
+    <changeSet author="artemenko_pa" id="USER_REPORT_EXCEL_TEMPLATE-003">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK-USER_REPORT_EXCEL_TEMPLATE-REPORT_EXCEL_TEMPLATE"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="REPORT_EXCEL_TEMPLATE_ID" baseTableName="USER_REPORT_EXCEL_TEMPLATE"
+                                 constraintName="FK-USER_REPORT_EXCEL_TEMPLATE-REPORT_EXCEL_TEMPLATE"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="REPORT_EXCEL_TEMPLATE_ID" referencedTableName="REPORT_EXCEL_TEMPLATE"/>
+    </changeSet>
+
+</databaseChangeLog>
