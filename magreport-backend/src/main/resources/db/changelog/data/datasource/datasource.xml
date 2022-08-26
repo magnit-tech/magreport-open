@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="DATASOURCE-001" author="artemenko_pa">
+        <validCheckSum>8:7f8e1cf63e54b2e420897c12f041efcd</validCheckSum>
+        <preConditions>
+            <tableIsEmpty schemaName="REPOSITORY" tableName="DATASOURCE"/>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="DATASOURCE">
+            <column name="DATASOURCE_TYPE_ID" valueComputed="SELECT DATASOURCE_TYPE_ID FROM REPOSITORY.DATASOURCE_TYPE WHERE NAME = 'H2'"/>
+            <column name="DATASOURCE_FOLDER_ID" value="1"/>
+            <column name="JDBC_URL" value="${default-datasource-url}"/>
+            <column name="USER_NAME" value="${default-datasource-username}"/>
+            <column name="PASSWORD" value="${default-datasource-password}"/>
+            <column name="POOL_SIZE" value="10"/>
+            <column name="NAME" value="H2"/>
+            <column name="DESCRIPTION" value="Репозиторий Магрепорт"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
