@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="ADD_NEW_USER_ROLE_TYPE-001" author="artemenko_pa">
+        <preConditions>
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM REPOSITORY.USER_ROLE_TYPE WHERE USER_ROLE_TYPE_ID = 2</sqlCheck>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="USER_ROLE_TYPE">
+            <column name="name" value="ASM"/>
+            <column name="description" value="Роль предоставлена механизмом ASM"/>
+        </insert>
+    </changeSet>
+    
+</databaseChangeLog>

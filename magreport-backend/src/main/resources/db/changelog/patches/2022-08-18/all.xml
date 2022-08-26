@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="RENAME_BOOLEAN_OPERATION-001" author="artemenko_pa">
+        <preConditions>
+            <not>
+                <sequenceExists schemaName="REPOSITORY" sequenceName="BOOLEAN_OPERATION_SEQ"/>
+            </not>
+        </preConditions>
+
+        <sql>
+            CREATE SEQUENCE REPOSITORY.BOOLEAN_OPERATION_SEQ AS INTEGER START WITH NEXT VALUE FOR REPOSITORY.REPORT_FILTER_GROUP_OPERATION_TYPE_SEQ NOCACHE;
+        </sql>
+    </changeSet>
+
+    <changeSet id="RENAME_BOOLEAN_OPERATION-002" author="artemenko_pa">
+        <preConditions>
+            <tableExists schemaName="REPOSITORY" tableName="REPORT_FILTER_GROUP_OPERATION_TYPE"/>
+        </preConditions>
+
+        <renameTable schemaName="REPOSITORY" oldTableName="REPORT_FILTER_GROUP_OPERATION_TYPE"
+                     newTableName="BOOLEAN_OPERATION"/>
+        <renameColumn schemaName="REPOSITORY" tableName="BOOLEAN_OPERATION"
+                      oldColumnName="REPORT_FILTER_GROUP_OPERATION_TYPE_ID" newColumnName="BOOLEAN_OPERATION_ID"/>
+        <addDefaultValue schemaName="REPOSITORY" tableName="BOOLEAN_OPERATION" columnName="BOOLEAN_OPERATION_ID"
+                         defaultValueSequenceNext="BOOLEAN_OPERATION_SEQ"/>
+        <dropSequence schemaName="REPOSITORY" sequenceName="REPORT_FILTER_GROUP_OPERATION_TYPE_SEQ"/>
+    </changeSet>
+</databaseChangeLog>

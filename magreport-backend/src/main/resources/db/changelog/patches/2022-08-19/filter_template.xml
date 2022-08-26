@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_TEMPLATE-001">
+        <preConditions>
+            <sqlCheck expectedResult="1">SELECT COUNT(1) FROM REPOSITORY.FILTER_TYPE WHERE NAME='TUPLE_LIST'</sqlCheck>
+        </preConditions>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE">
+            <column name="FILTER_TYPE_ID" valueComputed="SELECT FILTER_TYPE_ID FROM REPOSITORY.FILTER_TYPE WHERE NAME='TUPLE_LIST'"/>
+            <column name="FILTER_TEMPLATE_FOLDER_ID" valueNumeric="1"/>
+            <column name="NAME" value="TUPLE_LIST"/>
+            <column name="DESCRIPTION" value="Фильтр по списку значений кортежей без привязки к справочнику"/>
+            <column name="USER_ID" valueComputed="SELECT USER_ID FROM REPOSITORY.USERS WHERE NAME='MAGREPORT-INIT'"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
