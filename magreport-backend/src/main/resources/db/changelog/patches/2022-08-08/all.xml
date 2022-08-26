@@ -1,0 +1,24 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="ADD_EVENT_ENTITY" author="vyushin_aa">
+        <createSequence schemaName="REPOSITORY" sequenceName="EVENT_SEQ" startValue="0"/>
+
+        <createTable schemaName="REPOSITORY" tableName="EVENT">
+            <column name="EVENT_ID" type="INT" defaultValueSequenceNext="EVENT_SEQ">
+                <constraints primaryKey="true" primaryKeyName="EVENT_PK"/>
+            </column>
+            <column name="USER_ID" type="INT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IP_ADDRESS" type="VARCHAR(45)"/>
+            <column name="EVENT_TYPE" type="VARCHAR(255)"/>
+            <column name="ADDITIONALLY" type="TEXT"/>
+            <column name="CREATED" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

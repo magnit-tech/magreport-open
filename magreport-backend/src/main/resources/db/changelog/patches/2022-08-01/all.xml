@@ -1,0 +1,16 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="REFACTOR-EMAIL-SERVER-SETTINGS" author="vyushin_aa">
+        <insert tableName="SERVER_SETTINGS">
+            <column name="FOLDER_ID" valueComputed="SELECT SERVER_SETTINGS_FOLDER_ID FROM REPOSITORY.SERVER_SETTINGS_FOLDER WHERE CODE='EMAIL_CONFIG'"/>
+            <column name="ORDINAL" valueNumeric="8"/>
+            <column name="CODE" value="adminMailBox"/>
+            <column name="NAME" value="Адрес электронной почты администраторов"/>
+            <column name="DESCRIPTION" value="Адрес электронной почты администраторов"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

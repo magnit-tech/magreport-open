@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet id="REFACTOR-SERVER-MAIL-TEMPLATE" author="vyushin_aa">
+
+        <update tableName="SERVER_MAIL_TEMPLATE">
+            <column name="NAME"  value="Шаблон письма с отчётом"/>
+            <where> code = 'scheduleMailCompleteExcel' </where>
+        </update>
+
+        <update tableName="SERVER_MAIL_TEMPLATE">
+            <column name="NAME"  value="Шаблон письма со ссылкой на скачивание отчёта"/>
+            <where> code = 'scheduleMailBigSizeExcel' </where>
+        </update>
+
+        <update tableName="SERVER_MAIL_TEMPLATE">
+            <column name="NAME"  value="Шаблон письма с сообщением об ошибке для администраторов"/>
+            <where> code = 'scheduleMailFailed' </where>
+        </update>
+
+
+        <update tableName="SERVER_MAIL_TEMPLATE">
+            <column name="NAME"  value="Шаблон письма о готовности отчета по расписанию"/>
+            <where> code = 'scheduleMailCompleteWeb' </where>
+        </update>
+
+        <update tableName="SERVER_MAIL_TEMPLATE">
+            <column name="NAME"  value="Шаблон письма об истечении срока действия рассылки"/>
+            <where> code = 'scheduleMailExpired' </where>
+        </update>
+
+        <update tableName="SERVER_MAIL_TEMPLATE">
+            <column name="NAME"  value="Шаблон письма об изменении отчета, участвующего в рассылке"/>
+            <where> code = 'scheduleMailChanged' </where>
+        </update>
+
+        <update tableName="SERVER_MAIL_TEMPLATE">
+            <column name="NAME"  value="Добавочный текст о скором истечении срока действия рассылки"/>
+            <where> code = 'scheduleMailInformExpired' </where>
+        </update>
+
+        <update tableName="SERVER_MAIL_TEMPLATE">
+            <column name="NAME"  value="Шаблон письма для продления действия рассылки"/>
+            <where> code = 'scheduleMailDeadlineExpires' </where>
+        </update>
+
+        <update tableName="SERVER_MAIL_TEMPLATE">
+            <column name="NAME"  value="Шаблон письма для продления действия рассылки"/>
+            <where> code = 'scheduleMailDeadlineExpires' </where>
+        </update>
+
+        <update tableName="SERVER_MAIL_TEMPLATE">
+            <column name="NAME"  value="Шаблон письма с сообщением об ошибке для пользователей"/>
+            <column name="SUBJECT" value="Ошибка отправки отчета по расписанию: {reportName}"/>
+            <column name="BODY" value="Произошла ошибка при формировании отчета. Дата и время: {currentDataTime}, ID задачи: {taskId}, ID job:{reportJobId}, Текст ошибки: {textError}, StackTrace : {stackTrace}" />
+            <where> code = 'scheduleErrorUserMail' </where>
+        </update>
+
+    </changeSet>
+
+</databaseChangeLog>

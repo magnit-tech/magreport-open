@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_TEMPLATE_FIELD-001">
+        <preConditions>
+            <sqlCheck expectedResult="0">SELECT COUNT(1) FROM REPOSITORY.FILTER_TEMPLATE_FIELD WHERE FILTER_TEMPLATE_ID=SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='TUPLE_LIST'</sqlCheck>
+        </preConditions>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='TUPLE_LIST'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='ID_FIELD'"/>
+            <column name="NAME" value="ID_FIELD"/>
+            <column name="DESCRIPTION" value="Выходное поле фильтра, мапится к полю отчета"/>
+        </insert>
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_FIELD">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='TUPLE_LIST'"/>
+            <column name="FILTER_FIELD_TYPE_ID" valueComputed="SELECT FILTER_FIELD_TYPE_ID FROM REPOSITORY.FILTER_FIELD_TYPE WHERE NAME='CODE_FIELD'"/>
+            <column name="NAME" value="CODE_FIELD"/>
+            <column name="DESCRIPTION" value="Входное поле фильтра, для передачи значений в фильтр"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

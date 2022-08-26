@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
+
+    <changeSet author="artemenko_pa" id="FILTER_TEMPLATE_OPERATION-001">
+        <preConditions>
+            <sqlCheck expectedResult="0">SELECT COUNT(1) FROM REPOSITORY.FILTER_TEMPLATE_OPERATION WHERE FILTER_TEMPLATE_ID=SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='TUPLE_LIST'</sqlCheck>
+        </preConditions>
+
+        <insert schemaName="REPOSITORY" tableName="FILTER_TEMPLATE_OPERATION">
+            <column name="FILTER_TEMPLATE_ID" valueComputed="SELECT FILTER_TEMPLATE_ID FROM REPOSITORY.FILTER_TEMPLATE WHERE NAME='TUPLE_LIST'"/>
+            <column name="FILTER_OPERATION_TYPE_ID" valueComputed="SELECT FILTER_OPERATION_TYPE_ID FROM REPOSITORY.FILTER_OPERATION_TYPE WHERE NAME='IS_EQUAL'"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
