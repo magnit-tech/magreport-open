@@ -291,6 +291,8 @@
                         <phase>initialize</phase>
                         <configuration>
                             <target>
+                                <mkdir dir="${user.home}/magreport2.0/excel-export"/>
+                                <mkdir dir="${user.home}/magreport2.0/log"/>
                                 <copy todir="src/main/resources/static">
                                     <fileset dir="../magreport-frontend/build">
                                         <include name="**/*"/>

@@ -6,6 +6,7 @@
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd">
 
     <changeSet id="DATASOURCE-001" author="artemenko_pa">
+        <validCheckSum>8:7f8e1cf63e54b2e420897c12f041efcd</validCheckSum>
         <preConditions>
             <tableIsEmpty schemaName="REPOSITORY" tableName="DATASOURCE"/>
         </preConditions>

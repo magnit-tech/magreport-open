@@ -1,6 +1,6 @@
 <configuration debug = "false">
 
-    <property name="LOG_DIR" value="${user.home}/magreport2.0/"/>
+    <property name="LOG_DIR" value="${user.home}/magreport2.0/log"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
