@@ -2,7 +2,7 @@ dn: dc=magreport,dc=ru
 objectClass: top
 objectClass: domain
 
-dn: uid=paul,dc=magreport,dc=ru
+dn: uid=superuser,dc=magreport,dc=ru
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
@@ -11,3 +11,33 @@ cn: MagReport Admin
 sn: Admin
 uid: superuser
 userPassword: 123
+
+dn: uid=ivanov,dc=magreport,dc=ru
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: MagReport Admin
+sn: Admin
+uid: ivanov
+userPassword: 1
+
+dn: uid=petrov,dc=magreport,dc=ru
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: MagReport Admin
+sn: Admin
+uid: petrov
+userPassword: 2
+
+dn: uid=sidorov,dc=magreport,dc=ru
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: MagReport Admin
+sn: Admin
+uid: sidorov
+userPassword: 3
