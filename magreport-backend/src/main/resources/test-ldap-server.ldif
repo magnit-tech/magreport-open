@@ -1,0 +1,13 @@
+dn: dc=magreport,dc=ru
+objectClass: top
+objectClass: domain
+
+dn: uid=paul,dc=magreport,dc=ru
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: MagReport Admin
+sn: Admin
+uid: superuser
+userPassword: 123

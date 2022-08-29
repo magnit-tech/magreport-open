@@ -119,6 +119,10 @@
             <artifactId>spring-ldap-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.unboundid</groupId>
+            <artifactId>unboundid-ldapsdk</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
             <version>${java-jwt.version}</version>
@@ -295,6 +299,11 @@
                                 <mkdir dir="${user.home}/magreport2.0/log"/>
                                 <copy todir="src/main/resources/static">
                                     <fileset dir="../magreport-frontend/build">
+                                        <include name="**/*"/>
+                                    </fileset>
+                                </copy>
+                                <copy todir="${user.home}/magreport2.0/excel-templates">
+                                    <fileset dir="src/main/resources/templates">
                                         <include name="**/*"/>
                                     </fileset>
                                 </copy>
