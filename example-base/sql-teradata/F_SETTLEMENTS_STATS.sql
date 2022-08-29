@@ -16,7 +16,7 @@ SELECT
     longitude_dd,
     oktmo
 FROM
-    prd_db_magrep.T_SETTLEMENTS_STATS;
+    T_SETTLEMENTS_STATS;
 
 COMMENT ON F_SETTLEMENTS_STATS IS 'Статистические данные по населению населённых пунктов России';
 COMMENT ON F_SETTLEMENTS_STATS.settlement_id IS 'id населённого пункта';

@@ -6,7 +6,7 @@ select
     region as region_name,
     municipality
 FROM
-    prd_db_magrep.T_SETTLEMENTS_STATS
+    T_SETTLEMENTS_STATS
 GROUP BY
     region_code,
     region,
