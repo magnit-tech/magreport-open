@@ -20,4 +20,5 @@ After build ./package folder is the application folder ready to run application.
 ## If you are intersting in some kind of collaboration
 
 Please, fill the form (in russian):
+
 https://forms.yandex.ru/u/630ddb706173154e0ed12038/
