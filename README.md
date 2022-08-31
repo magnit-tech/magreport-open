@@ -10,7 +10,7 @@ In Windows run:
     build.bat
     
 In Linux run:
-    ./build.cmd
+    ./build.sh
     
 ### Run
 
