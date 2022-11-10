@@ -1,3 +1,7 @@
+# !!! Project migrated to repository:
+
+https://github.com/magnit-tech/magreport-open-2.1
+
 ### Requirements
 
 To build and run project you need Java 16 and maven installed.
