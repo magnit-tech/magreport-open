@@ -1,3 +1,7 @@
+# DEPRICATED
+
+This is an old version of the project. It is not supported and is not being developed. The project may contain security vulnerabilities. Do not use it.
+
 # !!! Project migrated to repository:
 
 https://github.com/magnit-tech/magreport-open-2.1
